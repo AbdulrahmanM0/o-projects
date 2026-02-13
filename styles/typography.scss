@@ -1,0 +1,59 @@
+@tailwind base;
+
+@layer base {
+  @font-face {
+    font-family: "Archivo";
+    src: url("/fonts/Archivo/Archivo-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Archivo";
+    src: url("/fonts/Archivo/Archivo-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Archivo";
+    src: url("/fonts/Archivo/Archivo-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("/fonts/WorkSans/WorkSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "WorkSans";
+    src: url("/fonts/WorkSans/WorkSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "WorkSans";
+    src: url("/fonts/WorkSans/WorkSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+  }
+}
+
+@layer base {
+
+  html {
+    --font-body: "WorkSans";
+    --font-heading: "Archivo";
+    direction: ltr;
+  }
+
+  body {
+    font-family: var(--font-body), sans-serif;
+  }
+
+  .heading {
+    font-family: var(--font-heading), sans-serif;
+  }
+}
