@@ -55,11 +55,11 @@ function Footer() {
 
   return (
     <footer ref={container} className="relative">
-      <div className=" min-h-screen relative overflow-hidden">
-        <div className='bg-b500 relative px-clamp-20 2xl:px-clamp-68 py-[87px] flex flex-col justify-between h-screen'>
+      <div className="min-h-[88.9vh] relative">
+        <div className='bg-b500 relative px-clamp-20 2xl:px-clamp-68 py-[87px] flex flex-col justify-between min-h-[88.9vh] overflow-hidden'>
 
           {/* top cols */}
-          <div className='flex justify-between flex-wrap gap-clamp-64 relative z-10 overflow-hidden'>
+          <div className='flex justify-between flex-wrap gap-clamp-64 relative z-10'>
 
             {/* first col  */}
             <div className='flex flex-col gap-clamp-46 2xl:gap-clamp-60 3xl:gap-clamp-71' >
@@ -88,6 +88,7 @@ function Footer() {
                     </div>
                   ))}
                 </div>
+
               </div>
 
               {/* footer slogans */}
