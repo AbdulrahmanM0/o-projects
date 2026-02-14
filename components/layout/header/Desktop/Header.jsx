@@ -7,7 +7,7 @@ import DrawerNav from "../Mobile/Drawernav";
 
 function Header() {
     const [open, setOpen] = useState(false);
-    const hanndleOpen = () => setOpen(!open)
+
     return (
         <>
             {/* Logo */}

@@ -7,9 +7,9 @@ export default function Home() {
 
     <div>
       <div className="h-screen bg-stone-950 -z-10">
-        <Shad1 />
+        {/* <Shad1 /> */}
       </div>
-      <Whyus />
+      {/* <Whyus /> */}
     </div>
   );
 }

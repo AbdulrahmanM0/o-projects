@@ -4,11 +4,11 @@ function Rights() {
     return (
         <div>
             <div className='flex justify-between text-balance'>
-                <div>
+                <div className='text-clamp-14 font-light tracking-[-0.36px]'>
                     © 2026 Powered by O-Projects
                 </div>
                 <div>
-                    <div className='flex gap-1 items-center'>
+                    <div className='flex gap-1 items-center text-clamp-18'>
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <g clip-path="url(#clip0_3216_3477)">

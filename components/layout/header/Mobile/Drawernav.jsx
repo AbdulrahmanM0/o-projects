@@ -1,15 +1,11 @@
 "use client"
 import {
     Drawer,
-    DrawerClose,
     DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
     DrawerTrigger,
 } from "@/components/ui/drawer"
-import { navigationData, social } from "../../navigation"
+import { navigationData, social } from "@/data/navigation"
+
 import Link from "next/link"
 function DrawerNav() {
     return (

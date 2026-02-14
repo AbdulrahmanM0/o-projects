@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { navigationData } from "../navigation";
+import { navigationData } from '@/data/navigation'; 
 
 function Nav() {
 

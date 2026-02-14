@@ -1,7 +1,7 @@
 "use client";
 
+import { navigationData, social } from "@/data/navigation";
 import Link from "next/link";
-import { navigationData, social } from "../../navigation";
 
 
 function AccordionItem({ title, children, open, setOpen }) {
