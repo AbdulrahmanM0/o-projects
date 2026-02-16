@@ -63,7 +63,7 @@ function Footer() {
 
             {/* first col  */}
             <div className='flex flex-col gap-clamp-46 2xl:gap-clamp-60 3xl:gap-clamp-71' >
-              <div className='flex flex-col gap-clamp-30 2xl:gap-clamp-38 3xl:gap-clamp-46' ref={firstCol}>
+              <div className='flex flex-col gap-clamp-30 2xl:gap-clamp-38 3xl:gap-clamp-46 will-change-transform' ref={firstCol}>
                 {/* footer heading */}
                 <h3 className='text-balance capitalize text-clamp-36 2xl:text-clamp-48 3xl:text-clamp-64 leading-[1] font-heading font-bold mt-[-3px]'>
                   We strive to bring <br /> customer’s ideas to life.
@@ -100,7 +100,7 @@ function Footer() {
             </div>
 
             {/* second col */}
-            <div className='me-[calc(clamp(100px,13vw,250px)-68px)] mt-[24px]' ref={seconedCol}>
+            <div className='me-[calc(clamp(100px,13vw,250px)-68px)] mt-[24px] will-change-transform' ref={seconedCol}>
               <Nav />
             </div>
           </div>
@@ -111,7 +111,7 @@ function Footer() {
           </div>
 
           {/* background image */}
-          <div ref={bgImage} className="absolute bottom-0 end-0 z-0">
+          <div ref={bgImage} className="absolute bottom-0 end-0 z-0 will-change-transform">
             <Image src="/images/o-projects/o-projects.png" className='w-[92vw]' width={1765} height={574} alt="o-projects" />
           </div>
 

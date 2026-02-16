@@ -2,25 +2,22 @@ import React from 'react'
 import Content from './utilies/Content'
 import Impact from './utilies/Impact'
 import Video from './utilies/Video'
+import ScrollRevealText from '@/components/animation/ScrollRevealText'
+import Clients from './clients/Clients'
 
 function Whyus() {
     return (
-        <section className="min-h-screen">
+        <section className="min-h-screen bg-balance">
             {/* Heading */}
-            <div className="pt-[100px] pb-[75px]">
-<h1 className="h1 font-heading font-bold text-center ~px-4/8 ~py-2/4">
-  Why Choose Us?
-</h1>
-<h1 class="~sm/2xl:~px-4/60">
-  Fluid Font + Fluid Padding
-</h1>
-
-
-      <div className="bg-red-500 text-white p-4 mb-4">
-        Regular Tailwind Test
-      </div>
-
-
+            <div className="pt-[50px] pb-[75px]">
+                <div className='w-fit mx-auto'>
+                    <ScrollRevealText
+                        text="Why Choose Us?"
+                        className="text-[10.916vw] font-bold text-b500 m-auto"
+                        yDistance={200}
+                        textClassName={"leading-[1.2]"}
+                    />
+                </div>
 
             </div>
 
@@ -28,7 +25,7 @@ function Whyus() {
             <div className="flex flex-wrap">
                 {/* Left column */}
                 <div className="shrink-0">
-                    <Content />
+                    {/* <Content /> */}
                     <Impact />
                 </div>
 
@@ -37,6 +34,9 @@ function Whyus() {
                     <Video />
                 </div>
             </div>
+
+            <Clients />
+            
         </section>
     )
 }
