@@ -17,4 +17,5 @@ export const studies = [
         title: "Don Eatery Mobile App",
         category: ["Ui Ux design", "Product development", "Loyalty"]
     },
+   
 ]

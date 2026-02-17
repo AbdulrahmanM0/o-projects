@@ -1,12 +1,42 @@
+"use client"
 import Link from 'next/link'
-import React from 'react'
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP } from '@gsap/react';
+import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger)
 
 function Content() {
+    const container = useRef();
+    const content = useRef();
+
+    useGSAP(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: container.current,
+                start: "30% 80%",
+                toggleActions: "play none none reverse",
+                // markers: true,
+                // scrub: true,
+            }
+        });
+
+        // column
+        tl.from(content.current, {
+            y: 200,
+            opacity: 0,
+            duration: 3,
+            ease: "power3.out",
+        }, 0)
+
+    }, { scope: container });
+
     return (
-        <div>
-            <div className='py-[40px] px-[64px] flex flex-col gap-[30px] max-w-[583px] border border-b50 translate-x-[220px] text-[18px] leading-[1.55] text-b400 bg-balance'>
+        <div ref={container}>
+            <div ref={content}  className='py-[40px] px-[3vw] flex flex-col gap-[30px] xl:max-w-[30.36vw] border border-b50 translate-none xl:translate-x-[10.94vw] text-clamp-18 leading-[1.55] text-b200 bg-balance z-[10] relative'>
                 <p className='p-0'>
-                    <Link href="#" className='text-b500'>
+                    <Link href="#" className='text-b600'>
                         {"< We combine international  > "}
                     </Link>
                     expertise with deep MENA market knowledge to deliver technology solutions that drive real business results. Our proven track record includes successful digital transformations for global brands, with measurable outcomes including cost savings, efficiency improvements, and revenue growth.

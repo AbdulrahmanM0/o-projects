@@ -25,7 +25,7 @@ const ScrollRevealText = ({ text, className = "",textClassName }) => {
 
     // Move faded text down (opacity stays 0.2)
     tl.to(fadedText.current, {
-      yPercent: 100,
+      yPercent: 120,
       duration: 1.2,
       ease: "power3.out",
     }, 0);

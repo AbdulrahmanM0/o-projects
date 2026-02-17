@@ -22,24 +22,28 @@ function Portfolio() {
                 </div>
 
                 {/* cards  */}
-                <div className='px-[3.62vw] grid grid-cols-2 gap-[8.80vw]'>
-                    <div>
-                        <div>
-                            <Card {...studies[0]} />
+                <div className='px-[3.62vw] grid grid-cols-1 xl:grid-cols-2 gap-[8.80vw]'>
+                    {/* first col */}
+                    <div className='flex flex-col justify-between order-2 xl:order-1'>
+                        <div className='flex-1'>
+                            <div className="sticky top-0 z-10 mt-clamp-100">
+                                <Card {...studies[0]} index={0} />
+                            </div>
                         </div>
-                        <div>
+                        <div className='mt-12'>
                             <ShowAllAtc />
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <Card {...studies[1]} />
+
+                    {/* second col */}
+                    <div className='order-1 xl:order-2'>
+                        <div className='mb-clamp-200 sticky top-0'>
+                            <Card {...studies[1]} index={1} />
                         </div>
-                        <div>
-                            <Card {...studies[2]} />
+                        <div className='my-clamp-100'>
+                            <Card {...studies[2]} index={2} />
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
