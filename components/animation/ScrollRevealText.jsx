@@ -5,13 +5,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollRevealText = ({ text, className = "",textClassName }) => {
+const ScrollRevealText = ({ text, className = "",textClassName,yPercent }) => {
   const container = useRef();
   const fadedText = useRef();
   const mainText = useRef();
 
   useLayoutEffect(() => {
-    // Set initial positions
     gsap.set(mainText.current, { yPercent: -100, opacity: 1 });
     gsap.set(fadedText.current, { yPercent: 0, opacity: 0.2 }); 
 
@@ -19,18 +18,17 @@ const ScrollRevealText = ({ text, className = "",textClassName }) => {
       scrollTrigger: {
         trigger: container.current,
         start: "top 80%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
+        markers:false
       },
     });
 
-    // Move faded text down (opacity stays 0.2)
     tl.to(fadedText.current, {
-      yPercent: 120,
+      yPercent: yPercent || 100,
       duration: 1.2,
       ease: "power3.out",
     }, 0);
 
-    // Main text comes from top
     tl.to(mainText.current, {
       yPercent: 0,
       opacity: 1,
@@ -38,7 +36,7 @@ const ScrollRevealText = ({ text, className = "",textClassName }) => {
       ease: "power3.out",
     }, 0);
 
-    return () => ScrollTrigger.getAll().forEach(st => st.kill());
+    // return () => ScrollTrigger.getAll().forEach(st => st.kill());
   }, []);
 
   return (

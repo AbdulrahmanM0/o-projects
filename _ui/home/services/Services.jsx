@@ -1,12 +1,14 @@
 "use client"
-import { useEffect, useRef } from "react"
+
+import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { services } from "@/data/services"
 import Card from "./utilies/Card"
+import { useGSAP } from "@gsap/react"
+
 
 gsap.registerPlugin(ScrollTrigger)
-
 function Services() {
     const sectionRef = useRef(null)
     const cardsContainerRef = useRef(null)
@@ -14,83 +16,122 @@ function Services() {
     const imgWrapperRef = useRef(null)
     const cardsRefs = useRef([])
 
-    useEffect(() => {
+    // Important: clear refs on every render
+    cardsRefs.current = []
+
+    useGSAP(() => {
         const section = sectionRef.current
         const cardsContainer = cardsContainerRef.current
-        const scrollWidth = cardsContainer.scrollWidth - section.offsetWidth
 
-        gsap.set(titleRef.current, { rotate: -10 });
-        gsap.set(imgWrapperRef.current, { 
-            clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" 
-        });
+        if (!section || !cardsContainer) return
+        // states 
+        gsap.set(titleRef.current, { rotate: -10 })
+        gsap.set(imgWrapperRef.current, {
+            clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
+            willChange: "clip-path"
+        })
 
-        gsap.to(titleRef.current, {
-            rotate: 0,
-            scrollTrigger: {
-                trigger: section,
-                start: "top top",
-                end: "top -20%",
-                scrub: 1,
-                markers: true,
-            }
-        });
+        // cards position
+        const randomValues = cardsRefs.current.map(() => ({
+            x: gsap.utils.random(-50, 50),
+            y: gsap.utils.random(-50, 50),
+            rotation: gsap.utils.random(-15, 15)
+        }))
 
-        gsap.to(imgWrapperRef.current, {
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                start: "top top",
-                end: "top -20%",
-                scrub: 1,
-            }
-        });
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                pin: true,
-                scrub: 1,
-                start: "top top",
-                end: () => `+=${scrollWidth}`,
-                anticipatePin: 1,
-            }
-        });
-
-        tl.to(cardsContainer, { x: -scrollWidth, ease: "none" });
-
-        // stacked random cards
-        cardsRefs.current.forEach(card => {
+        cardsRefs.current.forEach((card, i) => {
             gsap.set(card, {
-                x: gsap.utils.random(-50, 50),
-                y: gsap.utils.random(-50, 50),
-                rotation: gsap.utils.random(-15, 15),
-                zIndex: cardsRefs.current.length
+                ...randomValues[i],
+                willChange: "transform"
             })
         })
 
-        gsap.to(cardsRefs.current, {
+        // timeline
+        const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: section,
                 start: "top top",
-                end: "bottom top",
+                end: () =>
+                    `+=${cardsContainer.scrollWidth - section.offsetWidth}`,
+                pin: true,
                 scrub: 1,
-            },
-            x: 0,
-            y: (i) => i * 120,
-            rotation: 0,
-            stagger: 0.05
+                anticipatePin: 1,
+                invalidateOnRefresh: true
+            }
         })
 
+        // title
+        tl.to(titleRef.current, { rotate: 0 }, 0)
+
+        // image
+        tl.to(
+            imgWrapperRef.current,
+            {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                ease: "none"
+            },
+            0
+        )
+
+        // H scroll
+        tl.to(
+            cardsContainer,
+            {
+                x: () =>
+                    -(cardsContainer.scrollWidth - section.offsetWidth),
+                ease: "none"
+            },
+            0
+        )
+
+        // stacked cards
+        tl.to(
+            cardsRefs.current,
+            {
+                x: 0,
+                y: (i) => i * 120,
+                rotation: 0,
+                stagger: 0.05
+            },
+            0
+        )
         return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-        }
-    }, [])
+  // kill timeline
+  tl.kill()
+
+  // kill triggers related to this section and remove pin spacer
+  ScrollTrigger.getAll().forEach(trigger => {
+    if (trigger.trigger && sectionRef.current?.contains(trigger.trigger)) {
+      // remove pin spacer if it exists
+      if (trigger.pinSpacer && trigger.pinSpacer.parentNode) {
+        trigger.pinSpacer.parentNode.removeChild(trigger.pinSpacer)
+      }
+      trigger.kill()
+    }
+  })
+
+  // clear cards refs
+  cardsRefs.current = []
+
+  // force GSAP to recalc page height
+  ScrollTrigger.refresh()
+}
+    }, { scope: sectionRef })
+
+    // refresh
+    // useEffect(() => {
+    //     const handleLoad = () => ScrollTrigger.refresh()
+    //     window.addEventListener("load", handleLoad)
+    //     return () => window.removeEventListener("load", handleLoad)
+    // }, [])
 
     return (
-        <section>
-            <div className="bg-b600 relative overflow-hidden xl:h-auto h-screen" ref={sectionRef}>
-                <div className="absolute top-[8.89vh] w-full"> 
+        <section className="services bg-b600">
+            <div
+                className="relative overflow-hidden xl:h-auto h-screen"
+                ref={sectionRef}
+            >
+                {/* title */}
+                <div className="absolute top-[8.89vh] w-full z-10">
                     <h4
                         ref={titleRef}
                         className="text-[10.417vw] font-bold font-heading text-b700 leading-[0.7] mb-[40px] w-fit mx-auto"
@@ -98,31 +139,36 @@ function Services() {
                     >
                         Our Services
                     </h4>
-
-                    <div 
-                        ref={imgWrapperRef} 
-                        className="w-full h-[50.74vh] relative overflow-hidden"
-                        style={{ pointerEvents: "none" }}
-                    >
-                        <img
-                            src="/images/frams/frame1.png"
-                            className="w-full h-full object-cover block" 
-                            alt="frame"
-                        />
-                    </div>
                 </div>
 
-                <div className="px-[3.75vw] pt-[15.56vh] pb-[7.32vh] overflow-hidden">
-                    <div ref={cardsContainerRef} className="flex gap-clamp-40 relative">
+                {/* cards */}
+                <div className="px-[3.75vw] pt-[15.56vh] pb-[7.32vh] overflow-hidden z-10 relative">
+                    <div
+                        ref={cardsContainerRef}
+                        className="flex gap-clamp-40 relative will-change-transform"
+                    >
                         {services.concat(services).map((item, index) => (
-                            <Card 
-                                ref={el => cardsRefs.current[index] = el}
-                                key={`${item.title}-${index}`} 
-                                {...item} 
-                                index={index} 
+                            <Card
+                                key={`${item.title}-${index}`}
+                                ref={(el) => el && cardsRefs.current.push(el)}
+                                {...item}
+                                index={index}
                             />
                         ))}
                     </div>
+                </div>
+
+                {/* snack image */}
+                <div
+                    ref={imgWrapperRef}
+                    className="w-full h-full flex items-center absolute inset-0 overflow-hidden z-0"
+                    style={{ pointerEvents: "none", willChange: "transform" }}
+                >
+                    <img
+                        src="/images/frams/frame1.png"
+                        className="!w-[1920px] h-[546px] max-w-[1920px] z-[0] translate-y-24"
+                        alt="frame"
+                    />
                 </div>
             </div>
         </section>

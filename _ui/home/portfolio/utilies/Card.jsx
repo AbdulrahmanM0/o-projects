@@ -1,17 +1,67 @@
+"use client"
 import Image from 'next/image'
+import { useRef } from 'react'
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import PrimaryBtn from '@/components/btn/Primary';
+import { useGSAP } from '@gsap/react';
 
+
+gsap.registerPlugin(ScrollTrigger)
 function Card({ date, img, title, category, index }) {
+    const overlayRef = useRef(null);
+    const triggerRef = useRef(null);
+
+    useGSAP(() => {
+        gsap.set(overlayRef.current, {
+            top: 0
+        })
+        gsap.to(overlayRef.current, {
+            top: "100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: triggerRef.current,
+                start: "top center",
+                end: "bottom top",
+                scrub: false,
+                markers: false
+            }
+        })
+
+
+        const overlay = overlayRef.current;
+        const parent = triggerRef.current;
+
+        const hoverIn = () => gsap.to(overlay, { top: 0, duration: 0.3, ease: "power2.out" });
+        const hoverOut = () => gsap.to(overlay, { top: "100%", duration: 0.3, ease: "power2.in" });
+
+        parent.addEventListener("mouseenter", hoverIn);
+        parent.addEventListener("mouseleave", hoverOut);
+
+        return () => {
+            parent.removeEventListener("mouseenter", hoverIn);
+            parent.removeEventListener("mouseleave", hoverOut);
+        };
+
+    }, [])
+
     return (
-        <div className={`${index == 0 ? "sticky top-0" : ""}`}>
-            <div className='flex flex-col gap-[29px]'>
+        <div className={`${index == 0 ? "sticky top-0 " : ""}`}>
+            <div className='flex flex-col gap-[29px] group'>
                 {/* date  */}
                 <span className='text-clamp-18 text-balance'>
                     {date}
                 </span>
 
                 {/* image  */}
-                <div className='relative'>
-                    <Image width={734} height={481} src={img} alt={title} />
+                <div ref={triggerRef} className='relative overflow-hidden'>
+                    <Image width={734} height={481} src={img} alt={title} className='group-hover:scale-[1.2] duration-500 object-cover w-full' />
+                    <div
+                        ref={overlayRef}
+                        className='bg-[#0f1a20a3] w-full h-full absolute top-0 left-0 flex items-center justify-center group-hover:top-0'
+                    >
+                        <PrimaryBtn />
+                    </div>
                 </div>
 
                 <div className='flex justify-between'>

@@ -2,12 +2,12 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Shad1 from "@/components/shads/Shad1";
 import Whyus from "../whyus/Whyus";
 import { useGSAP } from "@gsap/react";
+import Hero from "../hero/Hero";
+
 
 gsap.registerPlugin(ScrollTrigger);
-
 export default function HomePage() {
   const container = useRef(null);
   const imgRef = useRef(null);
@@ -21,23 +21,37 @@ export default function HomePage() {
 
     const heroCenter = containerRect.top + containerRect.height / 2;
     const imgCenter = imgRect.top + imgRect.height / 2;
-    const startY = heroCenter - imgCenter;
+    const startY = heroCenter - imgCenter; 
+    const fromTop = -imgCenter; 
 
     gsap.fromTo(
       img,
-      // FROM — explicit start state (scroll position = 0)
-      { y: startY, scale: 2, zIndex: 10 },
-      // TO — end state
+      { y: fromTop, scale: 2, rotateZ: -20, zIndex: 10,duration: 1.5 },
       {
-        y: 0,
-        scale: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top top",
-          end: () => `+=${Math.abs(startY)}`,
-          scrub: 1.2,
-          markers: true,
+        y: startY,
+        scale: 2,
+        rotateZ: -20,
+        duration: 1.2,
+        ease: "power3.out",
+
+        onComplete: () => {
+          gsap.fromTo(
+            img,
+            { y: startY, scale: 2, rotateZ: -20 },
+            {
+              y: 0,
+              scale: 1,
+              rotateZ: 0,
+              ease: "none",
+              scrollTrigger: {
+                trigger: container.current,
+                start: "top top",
+                end: () => `+=${Math.abs(startY)}`,
+                scrub: 1.2,
+                // markers: true,
+              },
+            }
+          );
         },
       }
     );
@@ -47,13 +61,13 @@ export default function HomePage() {
     <div>
       {/* Section 1 */}
       <div className="h-screen bg-stone-400 relative" ref={container}>
-        <Shad1 />
+        <Hero />
       </div>
 
       {/* Section 2 */}
       <div className="min-h-screen bg-balance">
         <Whyus>
-          <div className='flex justify-center absolute top-[30px] left-1/2 -translate-x-[50%] z-20 overflow-visible'>
+          <div className='flex justify-center absolute top-[10px] xl:top-[30px] left-1/2 -translate-x-[50%] z-20 overflow-visible'>
             <img
               ref={imgRef}
               src="/images/o-projects/icon.png"

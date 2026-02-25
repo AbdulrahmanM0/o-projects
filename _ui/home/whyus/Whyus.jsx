@@ -15,7 +15,7 @@ function Whyus({children}) {
                     <ScrollRevealText
                         text="Why Choose Us?"
                         className="text-[10.916vw] font-bold text-b500 m-auto font-heading"
-                        yDistance={200}
+                        yPercent={200}
                         textClassName={"leading-[1.2]"}
                     />
                     {/* moved img  */}

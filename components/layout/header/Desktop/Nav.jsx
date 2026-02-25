@@ -45,10 +45,10 @@ export default function Nav(props) {
                         <span className="text-clamp-14 leading-[0.64]">Navigation</span>
                         {
                             navigationData.filter(item => ["Home", "About", "Services", "Industries", "Portfolio", "Career"].includes(item.title)).map((item, index) => (
-                                <li key={item.title}>
-                                    <Link href={"#"} className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading flex justify-between items-center  leading-[0.69]">
+                                <li key={item?.title}>
+                                    <Link href={item?.link} className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading flex justify-between items-center  leading-[0.69]">
                                         {/* link name */}
-                                        {item.title}
+                                        {item?.title}
                                         {/* icon */}
                                         <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-14 h-clamp-14" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M3.21996 3.50008C3.21996 3.17792 3.48113 2.91675 3.80329 2.91675H11.0833C11.4055 2.91675 11.6666 3.17792 11.6666 3.50008V10.7801C11.6666 11.1022 11.4055 11.3634 11.0833 11.3634C10.7611 11.3634 10.5 11.1022 10.5 10.7801V4.90837L3.91244 11.4959C3.68463 11.7237 3.31529 11.7237 3.08748 11.4959C2.85967 11.2681 2.85967 10.8987 3.08748 10.6709L9.675 4.08341H3.80329C3.48113 4.08341 3.21996 3.82225 3.21996 3.50008Z" fill="#B5B8BA" />

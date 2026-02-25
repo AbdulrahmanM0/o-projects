@@ -7,7 +7,7 @@ function Provder({ children }) {
         <div className='max-layout relative'>
             <Header />
             {children}
-            <Footer/>
+            <Footer />
         </div>
     )
 }

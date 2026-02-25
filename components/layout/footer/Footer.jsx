@@ -18,40 +18,46 @@ function Footer() {
   const bgImage = useRef();
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container.current,
-        start: "30% 80%",
-        toggleActions: "play none none reverse",
-        // markers: true,
-        // scrub: true,
-      }
-    });
 
-    // first column
-    tl.from(firstCol.current, {
-      y: 100,
-      opacity: 0,
-      duration: 2,
-      ease: "power3.out",
-    },0)
+    const ctx = gsap.context(() => {
 
-    // seconed column
-    tl.from(seconedCol.current, {
-      x: 100,
-      opacity: 0,
-      duration: 2,
-      ease: "power3.out",
-    },0)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top bottom",
+          toggleActions: "play none none reverse",
+          invalidateOnRefresh: true,
+          // markers: true,
+          refreshPriority: -1
+        }
+      });
 
-    // image 
-    tl.from(bgImage.current, {
-      y: 200,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power3.out",
-    }, "<0.3") 
-  }, { scope: container });
+      tl.from(firstCol.current, {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+      }, 0)
+
+      tl.from(seconedCol.current, {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+      }, 0)
+
+      tl.from(bgImage.current, {
+        y: 150,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      }, "<0.2")
+
+    }, container)
+
+    return () => ctx.revert()
+
+  }, { scope: container })
 
   return (
     <footer ref={container} className="relative">

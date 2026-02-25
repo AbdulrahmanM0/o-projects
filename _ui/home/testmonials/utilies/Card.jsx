@@ -20,7 +20,7 @@ function Card({ rate = 4, description, color,auther }) {
       </div>
 
       {/* content */}
-      <p className="text-clamp-18 text-balance leading-[1.3]">{description}</p>
+      <p className="text-clamp-18 text-balance leading-[1.3] h-[12vh] 3xl:h-[19.44vh] max-h-[210px]">{description}</p>
 
       {/* auther  */}
       <div className="flex gap-clamp-16">
