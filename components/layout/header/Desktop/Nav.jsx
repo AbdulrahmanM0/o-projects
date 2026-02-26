@@ -46,11 +46,11 @@ export default function Nav(props) {
                         {
                             navigationData.filter(item => ["Home", "About", "Services", "Industries", "Portfolio", "Career"].includes(item.title)).map((item, index) => (
                                 <li key={item?.title}>
-                                    <Link href={item?.link} className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading flex justify-between items-center  leading-[0.69]">
+                                    <Link href={item?.link} className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading flex justify-between items-center leading-[0.69] group">
                                         {/* link name */}
-                                        {item?.title}
+                                        <h5 className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading leading-[0.69] underline-text">{item?.title}</h5>
                                         {/* icon */}
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-14 h-clamp-14" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-14 h-clamp-14 transform  group-hover:rotate-[36deg] group-hover:!fill-balance" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M3.21996 3.50008C3.21996 3.17792 3.48113 2.91675 3.80329 2.91675H11.0833C11.4055 2.91675 11.6666 3.17792 11.6666 3.50008V10.7801C11.6666 11.1022 11.4055 11.3634 11.0833 11.3634C10.7611 11.3634 10.5 11.1022 10.5 10.7801V4.90837L3.91244 11.4959C3.68463 11.7237 3.31529 11.7237 3.08748 11.4959C2.85967 11.2681 2.85967 10.8987 3.08748 10.6709L9.675 4.08341H3.80329C3.48113 4.08341 3.21996 3.82225 3.21996 3.50008Z" fill="#B5B8BA" />
                                         </svg>
                                     </Link>
@@ -65,13 +65,12 @@ export default function Nav(props) {
                         {
                             social.map((item, index) => (
                                 <li key={item.title}>
-                                    <Link href={"#"} className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading flex justify-between items-center leading-[0.69]">
+                                    <Link href={"#"} className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading flex justify-between items-center leading-[0.69] group">
                                         {/* link name */}
-                                        {item.title}
-
+                                        <h5 className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading leading-[0.69] underline-text">{item?.title}</h5>
 
                                         {/* icon */}
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-14 h-clamp-14" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-clamp-14 h-clamp-14 transition-all duration-300 transform  group-hover:rotate-[36deg] group-hover:!fill-balance" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M3.21996 3.50008C3.21996 3.17792 3.48113 2.91675 3.80329 2.91675H11.0833C11.4055 2.91675 11.6666 3.17792 11.6666 3.50008V10.7801C11.6666 11.1022 11.4055 11.3634 11.0833 11.3634C10.7611 11.3634 10.5 11.1022 10.5 10.7801V4.90837L3.91244 11.4959C3.68463 11.7237 3.31529 11.7237 3.08748 11.4959C2.85967 11.2681 2.85967 10.8987 3.08748 10.6709L9.675 4.08341H3.80329C3.48113 4.08341 3.21996 3.82225 3.21996 3.50008Z" fill="#B5B8BA" />
                                         </svg>
                                     </Link>
@@ -80,9 +79,9 @@ export default function Nav(props) {
                         }
                     </ul>
 
-                    <button className="text-center px-clamp-18 2xl:px-clamp-24 3xl:px-clamp-32 py-clamp-20 flex items-center justify-center gap-clamp-16 text-clamp-18 leading-[0.7] border border-b300 w-full">
+                    <button className="text-center px-clamp-18 2xl:px-clamp-24 3xl:px-clamp-32 py-clamp-20 flex items-center justify-center gap-clamp-16 text-clamp-18 leading-[0.7] border border-b300 transition-all duration-300 hover:border-balance w-full group">
                         Request Quotation
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <svg className=" transition-all duration-300 transform group-hover:rotate-[36deg]" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M4.14 4.5C4.14 4.08579 4.47579 3.75 4.89 3.75H14.25C14.6642 3.75 15 4.08579 15 4.5V13.86C15 14.2742 14.6642 14.61 14.25 14.61C13.8358 14.61 13.5 14.2742 13.5 13.86V6.31066L5.03033 14.7803C4.73744 15.0732 4.26256 15.0732 3.96967 14.7803C3.67678 14.4874 3.67678 14.0126 3.96967 13.7197L12.4393 5.25H4.89C4.47579 5.25 4.14 4.91421 4.14 4.5Z" fill="white" />
                         </svg>
                     </button>

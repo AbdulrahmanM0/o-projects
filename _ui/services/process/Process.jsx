@@ -1,17 +1,16 @@
 import Slider from "./utilies/Slider"
+// import SnackImage from "./utilies/SnackImage"
 
 
 function Process() {
     return (
         <section>
-            <div className='shadow-inset-top bg-balance py-clamp-100 relative'>
+            <div>
                 {/* heading  */}
 
                 {/* slider  */}
-                <div >
                     <Slider />
-                </div>
-                
+                {/* <SnackImage/> */}
             </div>
         </section>
     )

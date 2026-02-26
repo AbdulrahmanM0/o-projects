@@ -3,6 +3,7 @@ import PrimaryBtn from "@/components/btn/Primary"
 import Card from "@/components/sectionCards/endcard/Card"
 import { coloredClients } from "@/data/clients"
 import Image from "next/image"
+import Logos from "./utilies/Logos"
 
 function Clients() {
     const col1 = <div className="flex flex-col gap-clamp-40">
@@ -18,7 +19,7 @@ function Clients() {
         </div>
     </div>
     return (
-        <section>
+        <section className="relative z-20">
             <div className='bg-balance px-[3.75vw] py-clamp-100'>
                 {/* head  */}
                 <div className='mx-auto max-w-[75.94vw] text-center text-b250 mb-clamp-56'>
@@ -34,13 +35,7 @@ function Clients() {
                     />
                 </div>
                 {/* clients  */}
-                <div className="flex justify-center items-center flex-wrap gap-clamp-100 relative mb-clamp-64">
-                    {coloredClients.map((item, index) => (
-                        <div key={item.path}>
-                            <Image src={`/images/clients/colored/${item.path}`} width={140} height={80} className="w-[clamp(60px,7.29vw,140px)]" alt={item.title} title={item.title} />
-                        </div>
-                    ))}
-                </div>
+<Logos />
                 {/* contact  */}
                 <div>
                     <Card col1={col1} />

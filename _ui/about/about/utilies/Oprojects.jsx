@@ -8,28 +8,37 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Oprojects() {
   const logoRef = useRef(null)
+  const oIcon = useRef(null)
 
-  useGSAP(() => {
-    if (!logoRef.current) return;
+ useGSAP(() => {
+  if (!logoRef.current || !oIcon.current) return;
 
-    gsap.from(logoRef.current, {
-      y: 100,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: logoRef.current,
-        start: "top 80%",
-        end: "top 50%",
-        toggleActions: "play none none none",
-      },
-    });
-  }, []);
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: logoRef.current,
+      start: "top 80%",
+      toggleActions: "play none none none",
+    }
+  });
+
+  tl.from(logoRef.current, {
+    y: 100,
+    opacity: 0,
+    duration: 1.5,
+    ease: "power2.out",
+  })
+  .to(oIcon.current, {
+    rotate: 360,
+    duration: 1.2,
+    ease: "power2.inOut",
+  });
+
+}, []);
   
   return (
     <div className="flex items-start relative mb-[-10%]" ref={logoRef}>
       <div className="my-auto">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-[18.5760vw] h-[15.05vw] me-[2.6vw]" width="357" height="289" viewBox="0 0 357 289" fill="none">
+        <svg ref={oIcon} xmlns="http://www.w3.org/2000/svg" className="w-[18.5760vw] h-[15.05vw] me-[2.6vw]" width="357" height="289" viewBox="0 0 357 289" fill="none">
           <path d="M207.662 236.374C219.882 236.486 232.003 234.188 243.327 229.61C254.085 225.221 263.879 218.782 272.161 210.654C280.551 202.357 287.104 192.401 291.397 181.427C296.031 169.574 298.336 156.945 298.186 144.225C298.352 131.572 296.046 119.008 291.397 107.232C287.041 96.2906 280.496 86.3465 272.161 78.005C263.937 69.7961 254.128 63.3334 243.327 59.0074C220.386 50.2771 195.021 50.2771 172.081 59.0074C161.267 63.3326 151.444 69.795 143.205 78.005C113.868 104.226 69.8214 96.0005 65.2952 107.232C60.6923 119.045 58.4432 131.639 58.6735 144.309C58.5237 157.028 60.8286 169.658 65.4628 181.51C69.989 192.784 109.133 193.41 143.373 210.738C151.669 218.867 161.477 225.306 172.248 229.693C183.497 234.22 195.531 236.49 207.662 236.374ZM207.662 288.983C187.582 289.145 167.66 285.445 148.988 278.085C131.369 271.177 115.307 260.841 101.743 247.678C88.179 234.516 77.384 218.793 69.989 201.427C62.4453 184.057 -0.335159 196.583 0.000117284 144.309C0.335393 92.034 62.3615 104.727 69.8214 87.1906C76.9937 69.909 87.6489 54.2773 101.128 41.2624C114.738 28.116 130.816 17.7727 148.444 10.8245C167.298 3.44857 187.407 -0.223569 207.662 0.0105273C227.922 -0.196988 248.031 3.50354 266.88 10.908C284.539 17.866 300.658 28.2071 314.322 41.3459C327.748 54.3956 338.384 70.019 345.586 87.2741C353.082 105.352 356.845 124.75 356.65 144.309C356.97 173.053 348.522 201.218 332.425 225.075C316.328 248.933 293.34 267.36 266.503 277.918C247.79 285.356 227.809 289.114 207.662 288.983Z" fill="url(#paint0_linear_3303_4112)" />
           <defs>
             <linearGradient id="paint0_linear_3303_4112" x1="178.329" y1="0" x2="178.329" y2="288.988" gradientUnits="userSpaceOnUse">

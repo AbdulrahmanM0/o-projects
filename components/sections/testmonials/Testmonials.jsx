@@ -21,7 +21,7 @@ function Testmonials() {
             ease: "none",
             scrollTrigger: {
                 trigger: sectionRef.current,
-                start: "top top",
+                start: "top 40%",
                 end: "top -20%",
             }
         });

@@ -5,13 +5,29 @@ function Product({ title, body, img, index }) {
     const colors = [
         "#F3C921", "#00E4A5", "#E7E8E9"
     ]
-    const spaces = ["mt-[18.52vh]", "mb-[18.52vh]"];
+    const grads = [
+        "from-[#F3C921]",
+        "from-[#00E4A5]",
+        "from-[#E7E8E9]"
+    ]
 
     const color = colors[index % colors.length];
-    const space = spaces[index % spaces.length];
-    
+    const grad= grads[index % grads.length];
+
     return (
-        <div className='p-[3.75vw] bg-b500 border border-b200 mb-clamp-48 sticky top-[15.28vh]' style={{ zIndex: index + 1 }}>
+        <div className='p-[3.75vw] bg-b500 border border-b200 mb-clamp-48 sticky top-[15.28vh] group overflow-hidden' style={{ zIndex: index + 1 }}>
+
+
+            {/* gradiant border  */}
+            <div
+                className={`absolute inset-0 p-[3px] 
+                            bg-gradient-to-r ${grad} to-transparent
+                            scale-x-0 group-hover:scale-x-100 origin-left
+                            transition-transform duration-500 ease-in-out z-0`}
+            >
+                <div className="w-full h-full bg-b500"></div>
+            </div>
+
             {/* borders  */}
             <div>
                 {/* top left  */}
@@ -32,7 +48,7 @@ function Product({ title, body, img, index }) {
                 </svg>
             </div>
 
-            <div className='flex justify-between flex-wrap gap-clamp-64'>
+            <div className='flex justify-between flex-wrap gap-clamp-64 relative z-10'>
                 {/* image  */}
                 <div>
                     <Image width={420} height={250} className='w-[21.875vw]' src={img} alt={title} />

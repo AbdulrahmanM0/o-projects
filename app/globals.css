@@ -19,3 +19,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Scoped scroll-snap for About page — toggled via body.about-snap class */
+.about-snap {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+.about-snap section {
+  scroll-snap-align: start;
+}

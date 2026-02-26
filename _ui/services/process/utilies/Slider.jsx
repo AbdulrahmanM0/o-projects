@@ -18,91 +18,99 @@ function Slider() {
     useGSAP(() => {
         const section = sectionRef.current
         const cardsContainer = cardsContainerRef.current
-        const scrollWidth = cardsContainer.scrollWidth - section.offsetWidth
 
-        // Initial title rotation
+        if (!section || !cardsContainer) return
+        // states 
         gsap.set(titleRef.current, { rotate: -10 })
-
-        // Snake image initial clip
         gsap.set(imgWrapperRef.current, {
-            clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)"
+            clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
+            willChange: "clip-path"
         })
 
-        // Title rotation
-        gsap.to(titleRef.current, {
-            rotate: 0,
-            scrollTrigger: {
-                trigger: section,
-                start: "top top",
-                end: "top -20%",
-                scrub: 1,
-            }
-        })
+        // cards position
+        const randomValues = cardsRefs.current.map(() => ({
+            x: gsap.utils.random(-50, 50),
+            y: gsap.utils.random(-50, 50),
+            rotation: gsap.utils.random(-15, 15)
+        }))
 
-        // Snake image reveal
-        gsap.to(imgWrapperRef.current, {
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                start: "top top",
-                end: "top -20%",
-                scrub: 1,
-            }
-        })
-
-        // Horizontal scroll timeline
-        const horizontalTL = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                start: "top top",
-                end: () => `+=${scrollWidth}`,
-                scrub: 1,
-                pin: true,
-                anticipatePin: 1,
-                // markers: true,
-            }
-        })
-
-        // Cards horizontal movement
-        horizontalTL.to(cardsContainer, { x: -scrollWidth, ease: "none" })
-
-        // Stacked cards animation: y and rotation
         cardsRefs.current.forEach((card, i) => {
             gsap.set(card, {
-                x: 0,
-                y: i * 120,
-                rotation: 0,
-                zIndex: process.length - i
+                ...randomValues[i],
+                willChange: "transform"
             })
         })
 
-        // Smooth fade-in / scale effect for cards as they move
-        gsap.fromTo(
-            cardsRefs.current,
-            { scale: 0.95, opacity: 0 },
-            {
-                scale: 1,
-                opacity: 1,
-                stagger: 0.05,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                }
+        // timeline
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: section,
+                start: "top top",
+                end: () =>
+                    `+=${cardsContainer.scrollWidth - section.offsetWidth}`,
+                pin: true,
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true
             }
+        })
+
+        // title
+        tl.to(titleRef.current, { rotate: 0 }, 0)
+
+        // image
+        tl.to(
+            imgWrapperRef.current,
+            {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                ease: "none"
+            },
+            0
         )
 
-        // Clean up triggers on unmount
+        // H scroll
+        tl.to(
+            cardsContainer,
+            {
+                x: () =>
+                    -(cardsContainer.scrollWidth - section.offsetWidth),
+                ease: "none"
+            },
+            0
+        )
+
+        // stacked cards
+        tl.to(
+            cardsRefs.current,
+            {
+                x: 0,
+                y: (i) => i * 120,
+                rotation: 0,
+                stagger: 0.05
+            },
+            0
+        )
         return () => {
-            ScrollTrigger.getAll().forEach(t => t.kill())
+            // kill timeline
+            tl.kill()
+
+
+            //   i made this optional 
+            ScrollTrigger.getAll().forEach(trigger => {
+                if (trigger.trigger && sectionRef.current?.contains(trigger.trigger)) {
+                    if (trigger.pinSpacer && trigger.pinSpacer.parentNode) {
+                        trigger.pinSpacer.parentNode.removeChild(trigger.pinSpacer)
+                    }
+                    trigger.kill()
+                }
+            })
+
+            cardsRefs.current = []
+            ScrollTrigger.refresh()
         }
     }, { scope: sectionRef })
-
     return (
-        <section ref={sectionRef} className="min-h-screen relative">
+        <section ref={sectionRef} className="min-h-screen shadow-inset-top bg-balance py-clamp-100 relative">
             {/* Title */}
             <div className='text-center mb-[5vh] relative z-10'>
                 <h2

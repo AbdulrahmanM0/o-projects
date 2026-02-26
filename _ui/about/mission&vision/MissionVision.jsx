@@ -18,9 +18,6 @@ function MissionVision() {
             <h6 className="text-clamp-24 leading-[0.7] mb-clamp-44">
               Technology
             </h6>
-            {/* <h3 className="font-heading text-[4.17vw] font-bold leading-none">
-              Empowering Innovation Through Cutting-Edge Solutions
-            </h3> */}
 
             <ScrollRevealText
               text="Empowering Innovation Through Cutting-Edge Solutions"

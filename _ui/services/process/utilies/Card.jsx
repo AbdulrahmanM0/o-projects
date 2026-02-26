@@ -1,7 +1,7 @@
 
 function Card({ title, body, index }) {
     return (
-        <div className={`border border-b400 p-clamp-32 flex flex-col gap-clamp-24 min-w-[22.76vw] bg-[#FFFFFF99] backdrop-blur-[12.5px] h-fit ${index %2 === 0 ? " mt-[27.78vh]" : "mt-[14.81vh]"}`}>
+        <div className={`border border-b400 p-clamp-32 flex flex-col gap-clamp-24 min-w-[70vw] lg:min-w-[40vw] xl:min-w-[22.76vw] bg-[#FFFFFF99] backdrop-blur-[12.5px] h-fit ${index %2 === 0 ? " mt-[27.78vh]" : "mt-[14.81vh]"}`}>
             <div className='font-heading text-clamp-36 font-bold text-b100 leading-[0.7]'>
                 0{index+1}
             </div>

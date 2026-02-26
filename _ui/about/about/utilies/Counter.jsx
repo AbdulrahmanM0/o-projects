@@ -46,8 +46,8 @@ function Counter() {
                 <div key={item.name} className="p-clamp-32 flex flex-col gap-clamp-32 group">
                     <h5 className="text-clamp-96 font-bold leading-[0.7] text-balance font-heading">
                         {item.name === "Revenue" && "$"}
-                        <span className={`counter-number`} data-value={item.counte}>0</span>
-                        {(item.name === "Revenue" || item.name === "User Served") && "M"}+
+                        <span className={`inline-block counter-number transform transition-transform duration-700 group-hover:-translate-y-[20%]`} data-value={item.counte}>0</span>
+                        {(item.name === "Revenue" || item.name === "User Served") && "M"}<div className="inline-block h-fit transform transition-transform duration-700 group-hover:!rotate-[360deg]">+</div>
                     </h5>
 
                     <div className="relative overflow-hidden">

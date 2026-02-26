@@ -12,6 +12,7 @@ function Slogan({ title, slogan }) {
     const textRef1 = useRef(null);
     const textRef2 = useRef(null);
     const textRef3 = useRef(null);
+    const scrollIconRef = useRef(null);
 
     useGSAP(() => {
         if (!textRef1.current || !textRef2.current) return;
@@ -48,7 +49,11 @@ function Slogan({ title, slogan }) {
                 onComplete: () => {
                     document.body.style.overflow = ""
                 },
-            });
+            })
+            .from(scrollIconRef.current, {
+                opacity: 0,
+                duration: 0.8,
+            })
 
         return () => {
             split1.revert();
@@ -58,7 +63,7 @@ function Slogan({ title, slogan }) {
     }, []);
 
     return (
-        <div className="text-[10.42vw] font-bold text-balance font-heading flex justify-center pt-[18.7037vh] overflow-hidden max-w-screen">
+        <div className="text-[10.42vw] font-bold text-balance font-heading flex justify-center pt-[18.7037vh] overflow-hidden max-w-screen relative">
             <h1 className="leading-[0.7]" ref={textRef1}>
                 {hero[0]}
             </h1>
@@ -69,6 +74,14 @@ function Slogan({ title, slogan }) {
                 </h1>
                 <div className="mt-clamp-48">
                     <div ref={textRef3}>{slogan}</div>
+                </div>
+            </div>
+
+            <div className="h-[84.72vh] w-full absolute top-0 left-0 z-0 ">
+                <div>
+                    <svg ref={scrollIconRef} xmlns="http://www.w3.org/2000/svg" className="bottom-[16.76vh] left-1/2 -translate-x-[50%] absolute animate-bounce" width="27" height="16" viewBox="0 0 27 16" fill="none">
+                        <path d="M26.0175 0.5856C25.6424 0.210658 25.1338 2.65335e-05 24.6035 2.64871e-05C24.0731 2.64408e-05 23.5645 0.210657 23.1895 0.5856L13.2895 10.4856L3.38945 0.585598C3.01225 0.221282 2.50704 0.019693 1.98265 0.0242497C1.45826 0.0288065 0.95663 0.239144 0.585814 0.60996C0.214997 0.980776 0.00466169 1.4824 0.000104803 2.0068C-0.00445208 2.53119 0.197137 3.03639 0.561453 3.4136L11.8755 14.7276C12.2505 15.1025 12.7591 15.3132 13.2895 15.3132C13.8198 15.3132 14.3284 15.1025 14.7035 14.7276L26.0175 3.4136C26.3924 3.03854 26.603 2.52993 26.603 1.9996C26.603 1.46927 26.3924 0.960655 26.0175 0.5856Z" fill="#E8EEFF" />
+                    </svg>
                 </div>
             </div>
         </div>

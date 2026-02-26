@@ -95,26 +95,23 @@ function Services() {
             0
         )
         return () => {
-  // kill timeline
-  tl.kill()
+            // kill timeline
+            tl.kill()
 
-  // kill triggers related to this section and remove pin spacer
-  ScrollTrigger.getAll().forEach(trigger => {
-    if (trigger.trigger && sectionRef.current?.contains(trigger.trigger)) {
-      // remove pin spacer if it exists
-      if (trigger.pinSpacer && trigger.pinSpacer.parentNode) {
-        trigger.pinSpacer.parentNode.removeChild(trigger.pinSpacer)
-      }
-      trigger.kill()
-    }
-  })
 
-  // clear cards refs
-  cardsRefs.current = []
+            //   i made this optional 
+            ScrollTrigger.getAll().forEach(trigger => {
+                if (trigger.trigger && sectionRef.current?.contains(trigger.trigger)) {
+                    if (trigger.pinSpacer && trigger.pinSpacer.parentNode) {
+                        trigger.pinSpacer.parentNode.removeChild(trigger.pinSpacer)
+                    }
+                    trigger.kill()
+                }
+            })
 
-  // force GSAP to recalc page height
-  ScrollTrigger.refresh()
-}
+            cardsRefs.current = []
+            ScrollTrigger.refresh()
+        }
     }, { scope: sectionRef })
 
     // refresh

@@ -6,7 +6,7 @@ import Slogan from './utilis/Slogan';
 
 function Hero({ title, slogan }) {
     return (
-        <section>
+        <section className="snap-start">
             <div className='h-screen'>
 
                 <Shader />

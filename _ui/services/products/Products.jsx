@@ -1,6 +1,7 @@
 import PrimaryBtn from "@/components/btn/Primary"
 import { products } from "@/data/services"
 import Product from "./utilies/Product"
+import Title from "./utilies/Title"
 function Products() {
   return (
     <section>
@@ -9,9 +10,10 @@ function Products() {
           {/* heading  */}
           <div className="flex gap-clamp-44 justify-between items-center mb-clamp-72">
             <div className="flex flex-col gap-clamp-44">
-              <h3 className="font-heading text-[6.667vw] font-bold leading-[1.1] text-balance">
+              {/* <h3 className="font-heading text-[6.667vw] font-bold leading-[1.1] text-balance">
                 Comprehensive <br /> Technology Solutions
-              </h3>
+              </h3> */}
+              <Title />
               <p className="leading-none text-clamp-18 text-b350">
                 We will provide guidance on technology choices, implementation strategies, and organizational structures
               </p>

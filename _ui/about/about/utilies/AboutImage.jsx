@@ -55,7 +55,7 @@ function AboutImage() {
                 start: "top 40%",
                 end: "top bottom",
                 toggleActions: "play none none reverse",
-                markers: true
+                // markers: true
             },
         })
     }, [])

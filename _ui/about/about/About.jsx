@@ -6,9 +6,9 @@ import Content from "./utilies/Content";
 function About() {
 
   return (
-    <section>
+    <section className="snap-start">
       {/* about us  */}
-      <div className="max-layout bg-b500">
+      <div className="max-layout bg-b500 ">
         <div className="py-[9.7222vh] px-[3.75vw]">
 
           {/* o-projects logo  */}
