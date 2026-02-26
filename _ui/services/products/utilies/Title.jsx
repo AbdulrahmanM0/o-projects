@@ -23,6 +23,7 @@ function Title() {
         })
         tl.fromTo(
             titleRef.current,
+            
             { opacity: 0.2 },
             { opacity: 1, duration: 1, ease: "power2.out" }
         )

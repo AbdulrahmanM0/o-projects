@@ -1,5 +1,5 @@
 import React from 'react'
-import Industry from './utilies/industry'
+import Industry from './utilies/Industry'
 import { industries } from '@/data/services'
 function Industries() {
     return (
