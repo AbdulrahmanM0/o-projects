@@ -129,7 +129,7 @@ export default function SwiperSection() {
       ref={sectionRef}
       className="relative flex flex-col items-center justify-center h-full"
     >
-      <div ref={swiperWrapRef} className="w-full px-[3.62vw] h-full">
+      <div ref={swiperWrapRef} className="w-full px-[clamp(10px,3.62vw,69.5px)] h-full">
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Pagination, Navigation]}

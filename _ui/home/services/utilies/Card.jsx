@@ -11,7 +11,7 @@ function Card({ title, body, img, index }) {
 
 
     return (
-        <div className={`bg-b600 w-fit relative min-w-[70vw] lg:min-w-[40vw] xl:min-w-[29.38vw] relative ${space}`}>
+        <div className={`bg-b600 w-fit relative min-w-[70vw] lg:min-w-[40vw] xl:min-w-[clamp(40px,29.38vw,564px)] relative ${space}`}>
             {/* borders  */}
             <div>
                 {/* top left  */}
@@ -36,7 +36,7 @@ function Card({ title, body, img, index }) {
             }
             {/* title  */}
             <div className='p-clamp-32 flex flex-col gap-clamp-30'>
-                <h5 className='text-[4.17vw] font-heading font-bold text-balance leading-[0.9]' dangerouslySetInnerHTML={{ __html: title }} />
+                <h5 className='text-[clamp(20px,4.17vw,80px)] font-heading font-bold text-balance leading-[0.9]' dangerouslySetInnerHTML={{ __html: title }} />
                 <p className='max-w-[500px] text-balance text-clamp-16'>
                     {body}
                 </p>

@@ -34,7 +34,7 @@ function Content() {
 
     return (
         <div ref={container}>
-            <div ref={content}  className='py-[40px] px-[3vw] flex flex-col gap-[30px] xl:max-w-[30.36vw] border border-b50 translate-none xl:translate-x-[10.94vw] text-clamp-18 leading-[1.55] text-b200 bg-balance z-[10] relative'>
+            <div ref={content}  className='py-[40px] px-[clamp(5px,3vw,67.6px)] flex flex-col gap-[30px] xl:max-w-[clamp(60px,30.36vw,583px)] border border-b50 translate-none xl:translate-x-[clamp(20px,10.94vw,210px)] text-clamp-18 leading-[1.55] text-b200 bg-balance z-[10] relative'>
                 <p className='p-0'>
                     <Link href="#" className='text-b600'>
                         {"< We combine international  > "}

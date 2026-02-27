@@ -23,8 +23,8 @@ function Hero() {
     <section className='h-full'>
       <div className='flex justify-center items-center text-center h-full' ref={container} id="shadContainer">
         <div>
-          <div className='flex-col gap-clamp-40 w-fit p-[3.33vw] z-40 relative'>
-            <h1 className="text-[10.94vw] font-bold font-heading leading-[0.8] mb-clamp-40 relative">
+          <div className='flex-col gap-clamp-40 w-fit p-[clamp(10px,3.33vw,64px)] z-40 relative'>
+            <h1 className="text-[clamp(40px,10.94vw,210px)] font-bold font-heading leading-[0.8] mb-clamp-40 relative">
               {/* Shadow */}
               <span
                 className="absolute top-0 left-0 text-black opacity-20 font-heading w-full"

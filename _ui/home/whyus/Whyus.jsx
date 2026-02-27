@@ -14,7 +14,7 @@ function Whyus({children}) {
                 <div className='w-fit mx-auto relative'>
                     <ScrollRevealText
                         text="Why Choose Us?"
-                        className="text-[10.916vw] font-bold text-b500 m-auto font-heading"
+                        className="text-[clamp(50px,10.916vw,209.5px)] font-bold text-b500 m-auto font-heading"
                         yPercent={200}
                         textClassName={"leading-[1.2]"}
                     />

@@ -72,7 +72,7 @@ export default function HomePage() {
               ref={imgRef}
               src="/images/o-projects/icon.png"
               alt="icon"
-              className="w-[32.14vw]"
+              className="w-[clamp(100px,32.14vw,617px)]"
               style={{ willChange: "transform" }}
             />
           </div>

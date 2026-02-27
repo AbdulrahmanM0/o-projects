@@ -81,8 +81,8 @@ function Impact() {
     }, [data]);
 
     return (
-        <div ref={container} className='xl:w-[22.76vw] pt-[19px] '>
-            <div className='ps-[3.75vw]' ref={content}>
+        <div ref={container} className='xl:w-[clamp(100px,22.76vw,437px)] pt-[19px] '>
+            <div className='ps-[clamp(10px,3.75vw,72px)]' ref={content}>
                 <h6 className='p-clamp-10 leading-[0.7] text-b200 text-clamp-24 mb-[9px] w-fit'>
                     Our Impact
                 </h6>

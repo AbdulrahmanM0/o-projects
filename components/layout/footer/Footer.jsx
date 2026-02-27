@@ -118,7 +118,7 @@ function Footer() {
 
           {/* background image */}
           <div ref={bgImage} className="absolute bottom-0 end-0 z-0 will-change-transform">
-            <Image src="/images/o-projects/o-projects.png" className='w-[92vw]' width={1765} height={574} alt="o-projects" />
+            <Image src="/images/o-projects/o-projects.png" className='w-[clamp(100px,92vw,1766.4px)]' width={1765} height={574} alt="o-projects" />
           </div>
 
         </div>

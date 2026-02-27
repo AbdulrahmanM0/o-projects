@@ -131,7 +131,7 @@ function Services() {
                 <div className="absolute top-[8.89vh] w-full z-10">
                     <h4
                         ref={titleRef}
-                        className="text-[10.417vw] font-bold font-heading text-b700 leading-[0.7] mb-[40px] w-fit mx-auto"
+                        className="text-[clamp(20px,10.417vw,200px)] font-bold font-heading text-b700 leading-[0.7] mb-[40px] w-fit mx-auto"
                         style={{ transformOrigin: "center center" }}
                     >
                         Our Services
@@ -139,7 +139,7 @@ function Services() {
                 </div>
 
                 {/* cards */}
-                <div className="px-[3.75vw] pt-[15.56vh] pb-[7.32vh] overflow-hidden z-10 relative">
+                <div className="px-[clamp(10px,3.75vw,79px)] pt-[15.56vh] pb-[7.32vh] overflow-hidden z-10 relative">
                     <div
                         ref={cardsContainerRef}
                         className="flex gap-clamp-40 relative will-change-transform relative"

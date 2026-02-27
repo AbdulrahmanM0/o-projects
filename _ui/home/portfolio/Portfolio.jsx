@@ -11,9 +11,9 @@ function Portfolio() {
             title: "Case Studies",
             className: {
                 text: "leading-[1.2] text-balance",
-                titleClass: "w-[29.9479vw] text-[6.667vw] font-heading text-balance font-bold leading-none"
+                titleClass: "w-[clamp(100px,29.9479vw,575px)] text-[clamp(50px,6.667vw,128px)] font-heading text-balance font-bold leading-none"
             },
-            component: <p className='text-clamp-18 text-balance max-w-[23.23vw] leading-[1.5]'>
+            component: <p className='text-clamp-18 text-balance max-w-[clamp(100px,23.23vw,446px)] leading-[1.5]'>
                 Explore our portfolio of innovative projects and discover how we've helped businesses like yours achieve their goals.
             </p>
         }

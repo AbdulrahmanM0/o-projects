@@ -31,13 +31,13 @@ function Testmonials() {
 
     return (
         <section ref={sectionRef}>
-            <div className="py-clamp-100 bg-balance relative w-screen overflow-hidden shadow-inset-top">
+            <div className="py-clamp-100 bg-balance relative w-screen max-w-[1920px] overflow-hidden shadow-inset-top">
                 {/* header */}
                 <div className="flex flex-col gap-clamp-40 leading-none text-b550 text-center mb-[55px] z-10 relative">
                     <div className="text-clamp-24 leading-[0.7]">
                         Testimonials
                     </div>
-                    <h4 className="font-heading text-[4.2vw] font-bold leading-[0.7]">
+                    <h4 className="font-heading text-[clamp(20px,4.2vw,80.6px)] font-bold leading-[0.7]">
                         Endorsed by Innovators
                     </h4>
                 </div>

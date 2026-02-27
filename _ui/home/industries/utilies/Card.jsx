@@ -35,9 +35,9 @@ function Card() {
             <div className="flex items-center justify-center px-clamp-24 xl:px-[0] relative" ref={container}  >
                 {/* shadow */}
                 <div className="relative w-fit " ref={card}>
-                    <div className="relative w-full xl:max-w-[30.5vw] bg-white p-[2.1vw] mt-auto z-10">
-                        <div className="absolute -top-[2.2vw] right-[17px] z-10">
-                            <img src="/images/tools/rectangle.png" className="h-auto w-[1.72vw]" alt="" />
+                    <div className="relative w-full xl:max-w-[clamp(50px,30.5vw,585.6px)] bg-white p-[clamp(5px,2.1vw,40.3px)] mt-auto z-10">
+                        <div className="absolute -top-[clamp(5px,2.2vw,42.24px)] right-[17px] z-10">
+                            <img src="/images/tools/rectangle.png" className="h-auto w-[clamp(5px,1.72vw,33.03px)]" alt="" />
                         </div>
 
                         <div className="flex flex-col gap-clamp-18">

@@ -14,7 +14,7 @@ function Header() {
             <Logo open={open} />
 
             {/* Nav*/}
-            <header className='hidden lg:block fixed top-[3.704vh] left-1/2 -translate-x-[50%] z-[500] w-[33.7vw] bg-[#E5E5E559] backdrop-blur-[25px]' >
+            <header className='hidden lg:block fixed top-[3.704vh] left-1/2 -translate-x-[50%] z-[500] w-[clamp(100px,33.7vw,647px)] bg-[#E5E5E559] backdrop-blur-[25px]' >
                 <div className={`p-clamp-12 2xl:p-clamp-18 px-[1.667vw] ${open ? "3xl:py-clamp-32" : "3xl:py-clamp-20"} border border-g1`}>
                     <Nav open={open} setOpen={setOpen} />
                 </div>

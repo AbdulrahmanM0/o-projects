@@ -31,7 +31,7 @@ function Video() {
   }, { scope: container });
   return (
     <div className='mt-auto' ref={container}>
-      <video ref={content} src="/videos/whyus.mp4" className='object-cover max-w-[67.3vw] aspect-[1293/899]' fill loop autoPlay muted></video>
+      <video ref={content} src="/videos/whyus.mp4" className='object-cover max-w-[clamp(300px,67.3vw,1292px)] aspect-[1293/899]' fill loop autoPlay muted></video>
     </div>
   )
 }

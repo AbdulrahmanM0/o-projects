@@ -13,7 +13,7 @@ function Clients() {
         </h4>
         <ScrollRevealText
           text="We provide innovative solutions to expand your business"
-          className="text-[4.17vw] font-heading max-w-[69.11vw] capitalize font-bold leading-none"
+          className="text-[clamp(15px,4.17vw,80px)] font-heading max-w-[clamp(100px,69.11vw,1327px)] capitalize font-bold leading-none"
           yPercent={250}
           textClassName={"leading-[1.2]"}
         />
