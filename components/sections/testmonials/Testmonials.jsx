@@ -19,6 +19,7 @@ function Testmonials() {
         gsap.to(imgWrapperRef.current, {
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
             ease: "none",
+            duration: 1.2,
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top 40%",
@@ -30,7 +31,7 @@ function Testmonials() {
 
     return (
         <section ref={sectionRef}>
-            <div className="py-[94px] bg-balance relative w-screen overflow-hidden shadow-inset-top">
+            <div className="py-clamp-100 bg-balance relative w-screen overflow-hidden shadow-inset-top">
                 {/* header */}
                 <div className="flex flex-col gap-clamp-40 leading-none text-b550 text-center mb-[55px] z-10 relative">
                     <div className="text-clamp-24 leading-[0.7]">

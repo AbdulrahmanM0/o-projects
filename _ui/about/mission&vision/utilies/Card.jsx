@@ -1,5 +1,5 @@
+import RevealParagraph from "@/components/animation/RevealParagraph";
 import ScrollRevealText from "@/components/animation/ScrollRevealText";
-import RevealParagraph from "./RevealParagraph";
 
 function Card({ title, body, icon, index }) {
     const colors = [
@@ -21,7 +21,7 @@ function Card({ title, body, icon, index }) {
             className={`bg-b600 min-w-[70vw] lg:min-w-[40vw] xl:min-w-[38.23vw] w-[38.23vw] 
                         relative mx-auto lg:mx-0 ${space} 
                         ${index === 0 && "!sticky top-[15.28vh]"} 
-                        group overflow-hidden`}
+                        group overflow-hidden `}
         >
 
             {/* gradiant border  */}

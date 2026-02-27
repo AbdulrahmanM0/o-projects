@@ -14,9 +14,13 @@ export default function Services() {
       Unleash your potential with innovative <br/> solutions
     </p>
   }
+  const nav = {
+    title: "Services",
+    src: "/services"
+  }
   return (
     <div>
-      <Hero {...hero} />
+      <Hero {...hero} nav={nav}/>
       <Products />
       <Process />
       <Projects />

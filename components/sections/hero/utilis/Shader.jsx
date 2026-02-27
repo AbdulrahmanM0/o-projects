@@ -53,7 +53,7 @@ export default function DarkShader({ children }) {
       {/* Blob 1 */}
       <div
         ref={blob1}
-        className="absolute w-[500px] h-[500px] rounded-full blur-[120px] opacity-40"
+        className="absolute w-[500px] h-[500px] rounded-full blur-[120px] opacity-40 will-change-transform"
         style={{
           background: "radial-gradient(circle, #153EB5 0%, transparent 80%)",
           top: "-40%",     
@@ -65,7 +65,7 @@ export default function DarkShader({ children }) {
       {/* Blob 2 */}
       <div
         ref={blob2}
-        className="absolute w-[600px] h-[600px] rounded-full blur-[140px] opacity-30"
+        className="absolute w-[600px] h-[600px] rounded-full blur-[140px] opacity-30 will-change-transform"
         style={{
           background: "radial-gradient(circle, #00E4A5 0%, transparent 80%)",
           top: "-40%",
@@ -77,7 +77,7 @@ export default function DarkShader({ children }) {
       {/* Blob 3 */}
       <div
         ref={blob3}
-        className="absolute w-[600px] h-[600px] rounded-full blur-[140px] opacity-30"
+        className="absolute w-[600px] h-[600px] rounded-full blur-[140px] opacity-30 will-change-transform"
         style={{
           background: "radial-gradient(circle, #d900e4 0%, transparent 80%)",
           top: "-40%",

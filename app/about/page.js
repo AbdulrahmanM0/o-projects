@@ -4,6 +4,9 @@ import MissionVision from "@/_ui/about/mission&vision/MissionVision";
 import Clients from "@/_ui/about/clients/Clients";
 import Values from "@/components/sections/values/Values";
 import Hero from "@/components/sections/hero/Hero";
+import DynamicScrollSections from "@/_ui/test/TestSectionns";
+import CurtainReveal from "@/components/sections/scrolls/ScrollSection";
+import ScrollSection from "@/components/sections/scrolls/ScrollSection";
 
 export default function About() {
   const hero = {

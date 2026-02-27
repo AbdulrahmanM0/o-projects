@@ -5,14 +5,14 @@ export const services = [
         img: "/images/frams/framelogo1.png"
     },
     {
-        title: "Ui Ux <br/> Design",
-        body: "We craft intuitive interfaces and seamless user journeys that drive engagement and achieve business goals. Elevate your digital presence with our expert UI/UX solutions.",
-        img: "/images/frams/framelogo1.png"
+        title: "Web <br/> Development",
+        body: "From front-end finesse to back-end architecture, we build scalable, secure, and user-friendly websites that drive growth and engagement. Partner with us to bring your digital vision to life.",
+        img: "/images/frams/framelogo2.png"
     },
     {
-        title: "Ui Ux <br/> Design",
-        body: "We craft intuitive interfaces and seamless user journeys that drive engagement and achieve business goals. Elevate your digital presence with our expert UI/UX solutions.",
-        img: "/images/frams/framelogo1.png"
+        title: "Mobile App <br/> Development",
+        body: "We specialize in crafting innovative mobile applications that elevate user experiences and drive business growth. Partner with us to transform your ideas into reality.",
+        img: "/images/frams/framelogo3.png"
     },
 ]
 

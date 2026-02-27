@@ -3,15 +3,17 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
-gsap.registerPlugin(ScrollTrigger, SplitText);
-function RevealParagraph({body}) {
-    useGSAP(() => {
-        const split = new SplitText(".reveal-text", { type: "chars" });
 
-        gsap.from(split.chars, {
-            opacity: 0.2,
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
+function RevealParagraph({ body, className }) {
+    useGSAP(() => {
+        const split = new SplitText(".reveal-text", { type: "words" }); // to make me remember ".chart"
+
+        gsap.from(split.words, {
+            opacity: 0.5,
             y: 20,
-            stagger: 0.01,
+            stagger: 0.1, 
             ease: "power2.out",
             scrollTrigger: {
                 trigger: ".reveal-text",
@@ -19,11 +21,12 @@ function RevealParagraph({body}) {
             }
         });
     }, []);
+
     return (
-        <p className="reveal-text text-balance text-clamp-18">
+        <p className={`reveal-text text-balance text-clamp-18 ${className || ""}`}>
             {body}
         </p>
-    )
+    );
 }
 
-export default RevealParagraph
+export default RevealParagraph;

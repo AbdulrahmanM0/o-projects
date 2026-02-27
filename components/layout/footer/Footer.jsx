@@ -24,10 +24,10 @@ function Footer() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container.current,
-          start: "top bottom",
+          start: "top 60%",
           toggleActions: "play none none reverse",
           invalidateOnRefresh: true,
-          // markers: true,
+          markers: true,
           refreshPriority: -1
         }
       });

@@ -64,15 +64,15 @@ function Slogan({ title, slogan }) {
 
     return (
         <div className="text-[10.42vw] font-bold text-balance font-heading flex justify-center pt-[18.7037vh] overflow-hidden max-w-screen relative">
-            <h1 className="leading-[0.7]" ref={textRef1}>
+            <h1 className="leading-[0.7] will-change-[transform,opacity]" ref={textRef1}>
                 {hero[0]}
             </h1>
             <OIcon />
             <div>
-                <h1 className="leading-[0.7]" ref={textRef2}>
+                <h1 className="leading-[0.7] will-change-[transform,opacity]" ref={textRef2}>
                     {hero.slice(1).join(" ")}
                 </h1>
-                <div className="mt-clamp-48">
+                <div className="mt-clamp-48 will-change-[transform,opacity]">
                     <div ref={textRef3}>{slogan}</div>
                 </div>
             </div>

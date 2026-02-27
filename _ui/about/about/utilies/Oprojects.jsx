@@ -10,14 +10,17 @@ function Oprojects() {
   const logoRef = useRef(null)
   const oIcon = useRef(null)
 
- useGSAP(() => {
+useGSAP(() => {
   if (!logoRef.current || !oIcon.current) return;
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: logoRef.current,
-      start: "top 80%",
-      toggleActions: "play none none none",
+      start: "top top",     // pins when element hits the top of viewport
+      end: "+=100%",        // keeps it pinned for 100vh worth of scroll
+      pin: true,            // <-- this pins the scroll
+      scrub: false,         // animation plays freely, not tied to scroll position
+      anticipatePin: 1,
     }
   });
 

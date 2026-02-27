@@ -6,7 +6,7 @@ import { values } from '@/data/aboutus'
 function Values() {
 
     return (
-        <section>
+        <section id="values-section">
             <div
                 className="shadow-inset-top bg-balance px-[3.75vw] py-clamp-100 relative z-20 sticky top-[200px]"
             >

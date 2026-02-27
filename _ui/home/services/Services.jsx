@@ -8,15 +8,29 @@ import Card from "./utilies/Card"
 import { useGSAP } from "@gsap/react"
 
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
+
+function getScatter(index) {
+    // Seeded-ish pattern so it's not purely random on every render
+    const scatters = [
+        { x: -300, y: -80, rotZ: -12 },
+        { x: 200, y: -150, rotZ: 8 },
+        { x: -150, y: 120, rotZ: -6 },
+        { x: 350, y: 60, rotZ: 10 },
+        { x: -400, y: -40, rotZ: 15 },
+        { x: 100, y: 180, rotZ: -9 },
+        { x: -250, y: 200, rotZ: 7 },
+        { x: 450, y: -100, rotZ: -13 },
+    ]
+    return scatters[index % scatters.length]
+}
+
 function Services() {
     const sectionRef = useRef(null)
     const cardsContainerRef = useRef(null)
     const titleRef = useRef(null)
     const imgWrapperRef = useRef(null)
     const cardsRefs = useRef([])
-
-    // Important: clear refs on every render
     cardsRefs.current = []
 
     useGSAP(() => {
@@ -31,17 +45,15 @@ function Services() {
             willChange: "clip-path"
         })
 
-        // cards position
-        const randomValues = cardsRefs.current.map(() => ({
-            x: gsap.utils.random(-50, 50),
-            y: gsap.utils.random(-50, 50),
-            rotation: gsap.utils.random(-15, 15)
-        }))
-
         cardsRefs.current.forEach((card, i) => {
+            const { x, y, rotZ } = getScatter(i)
             gsap.set(card, {
-                ...randomValues[i],
-                willChange: "transform"
+                x,
+                y,
+                rotation: rotZ,
+                opacity: 0,
+                zIndex: i,
+                transformOrigin: "center center",
             })
         })
 
@@ -51,13 +63,20 @@ function Services() {
                 trigger: section,
                 start: "top top",
                 end: () =>
-                    `+=${cardsContainer.scrollWidth - section.offsetWidth}`,
+                    `+=${cardsContainer.scrollWidth - section.offsetWidth} 500`,
                 pin: true,
                 scrub: 1,
                 anticipatePin: 1,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true,
+                markers: true
             }
         })
+        // cards 
+        tl.from(cardsContainer, {
+            y: "100%",
+            duration: 0.5,
+            ease: "power2.out",
+        }, 0.6)
 
         // title
         tl.to(titleRef.current, { rotate: 0 }, 0)
@@ -80,26 +99,14 @@ function Services() {
                     -(cardsContainer.scrollWidth - section.offsetWidth),
                 ease: "none"
             },
-            0
+            1
         )
 
-        // stacked cards
-        tl.to(
-            cardsRefs.current,
-            {
-                x: 0,
-                y: (i) => i * 120,
-                rotation: 0,
-                stagger: 0.05
-            },
-            0
-        )
         return () => {
-            // kill timeline
+            // timeline finsh
             tl.kill()
 
-
-            //   i made this optional 
+            // i made this optional plus i donnt know if its better to remove it or not ?!! 
             ScrollTrigger.getAll().forEach(trigger => {
                 if (trigger.trigger && sectionRef.current?.contains(trigger.trigger)) {
                     if (trigger.pinSpacer && trigger.pinSpacer.parentNode) {
@@ -113,13 +120,6 @@ function Services() {
             ScrollTrigger.refresh()
         }
     }, { scope: sectionRef })
-
-    // refresh
-    // useEffect(() => {
-    //     const handleLoad = () => ScrollTrigger.refresh()
-    //     window.addEventListener("load", handleLoad)
-    //     return () => window.removeEventListener("load", handleLoad)
-    // }, [])
 
     return (
         <section className="services bg-b600">
@@ -142,7 +142,7 @@ function Services() {
                 <div className="px-[3.75vw] pt-[15.56vh] pb-[7.32vh] overflow-hidden z-10 relative">
                     <div
                         ref={cardsContainerRef}
-                        className="flex gap-clamp-40 relative will-change-transform"
+                        className="flex gap-clamp-40 relative will-change-transform relative"
                     >
                         {services.concat(services).map((item, index) => (
                             <Card

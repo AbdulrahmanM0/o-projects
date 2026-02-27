@@ -1,12 +1,12 @@
 function PrimaryBtn({value}) {
   return (
-    <button className="relative border border-b200 hover:border-balance flex overflow-hidden group transition-colors duration-300">
+    <button className="relative border border-b200 hover:border-balance flex overflow-hidden group whitespace-nowrap transition-colors duration-300">
       
       {/* Backdrop */}
       <div className="absolute left-0 top-0 h-full w-0 bg-b600 transition-all duration-500 ease-out group-hover:w-full" />
 
       {/* Text */}
-      <div className="flex items-center justify-center relative z-10 p-clamp-12 2xl:p-clamp-20 whitespace-nowrap leading-[0.7] font-heading font-bold text-clamp-24 text-balance">
+      <div className="flex items-center justify-center relative z-10 p-clamp-12 2xl:p-clamp-20 whitespace-nowrap leading-[0.7] font-heading font-bold text-clamp-24 text-balance" style={{whiteSpace: "nowrap"}}>
         {value ? value : "Show All Projects"}
       </div>
 

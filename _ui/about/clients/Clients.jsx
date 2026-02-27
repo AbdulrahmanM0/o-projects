@@ -1,8 +1,6 @@
 import ScrollRevealText from "@/components/animation/ScrollRevealText"
 import PrimaryBtn from "@/components/btn/Primary"
 import Card from "@/components/sectionCards/endcard/Card"
-import { coloredClients } from "@/data/clients"
-import Image from "next/image"
 import Logos from "./utilies/Logos"
 
 function Clients() {
@@ -19,7 +17,7 @@ function Clients() {
         </div>
     </div>
     return (
-        <section className="relative z-20">
+        <section className="relative z-20" id="section-1" >
             <div className='bg-balance px-[3.75vw] py-clamp-100'>
                 {/* head  */}
                 <div className='mx-auto max-w-[75.94vw] text-center text-b250 mb-clamp-56'>

@@ -4,11 +4,13 @@ import HeroWhyus from "@/_ui/home/merged/HeroWhyus";
 import Portfolio from "@/_ui/home/portfolio/Portfolio";
 import Services from "@/_ui/home/services/Services";
 import Testmonials from "@/components/sections/testmonials/Testmonials";
+// import Shads from "@/components/utilies/Shads";
 
 export default function Home() {
   return (
 
     <div>
+      {/* <Shads/> */}
       <HeroWhyus />
       <Services />
       <Portfolio />

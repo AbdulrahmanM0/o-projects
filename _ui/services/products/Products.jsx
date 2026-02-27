@@ -1,7 +1,8 @@
 import PrimaryBtn from "@/components/btn/Primary"
 import { products } from "@/data/services"
 import Product from "./utilies/Product"
-import Title from "./utilies/Title"
+import ScrollRevealText from "@/components/animation/ScrollRevealText"
+import RevealParagraph from "@/components/animation/RevealParagraph"
 function Products() {
   return (
     <section>
@@ -13,10 +14,18 @@ function Products() {
               {/* <h3 className="font-heading text-[6.667vw] font-bold leading-[1.1] text-balance">
                 Comprehensive <br /> Technology Solutions
               </h3> */}
-              <Title />
-              <p className="leading-none text-clamp-18 text-b350">
+
+              <ScrollRevealText
+                text="Comprehensive Technology Solutions"
+                className="font-heading text-[6.667vw] font-bold leading-[1.1] text-balance"
+                yPercent={200}
+                textClassName={"leading-[1.1]"}
+              />
+              {/* <p className="leading-none text-clamp-18 text-b350">
                 We will provide guidance on technology choices, implementation strategies, and organizational structures
-              </p>
+              </p> */}
+              <RevealParagraph className={"leading-none text-clamp-18 !text-b350"} body={"We will provide guidance on technology choices, implementation strategies, and organizational structures"} />
+
             </div>
             {/* button  */}
             <div>

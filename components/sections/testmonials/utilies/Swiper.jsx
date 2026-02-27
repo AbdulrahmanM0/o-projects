@@ -61,59 +61,58 @@ export default function SwiperSection() {
         });
       });
 
-const handleClick = () => {
-  if (assembledRef.current) return;
-  assembledRef.current = true;
+      const handleClick = () => {
+        if (assembledRef.current) return;
+        assembledRef.current = true;
 
-  const slides = Array.from(
-    swiperWrapRef.current.querySelectorAll(".swiper-slide")
-  );
+        const slides = Array.from(
+          swiperWrapRef.current.querySelectorAll(".swiper-slide")
+        );
 
-  // STEP 1 — Get FIRST positions (scatter absolute)
-  const firstRects = slides.map(slide => slide.getBoundingClientRect());
+        // get positions
+        const firstRects = slides.map(slide => slide.getBoundingClientRect());
 
-  // STEP 2 — Remove absolute positioning instantly
-  slides.forEach(slide => {
-    gsap.set(slide, {
-      clearProps: "position,left,xPercent"
-    });
-  });
+        // set positions
+        slides.forEach(slide => {
+          gsap.set(slide, {
+            clearProps: "position,left,xPercent"
+          });
+        });
 
-  // Force browser reflow so layout updates
-  swiperRef.current.update();
+        swiperRef.current.update();
 
-  // STEP 3 — Get LAST positions (real swiper layout)
-  const lastRects = slides.map(slide => slide.getBoundingClientRect());
+        // get fnal positions
+        const lastRects = slides.map(slide => slide.getBoundingClientRect());
 
-  // STEP 4 — Put them visually back where they were (invert)
-  slides.forEach((slide, i) => {
-    const dx = firstRects[i].left - lastRects[i].left;
-    const dy = firstRects[i].top - lastRects[i].top;
+        // revert positions
+        slides.forEach((slide, i) => {
+          const dx = firstRects[i].left - lastRects[i].left;
+          const dy = firstRects[i].top - lastRects[i].top;
 
-    gsap.set(slide, {
-      x: dx,
-      y: dy,
-      rotationZ: SCATTER[i]?.rotZ ?? 0,
-      rotationY: SCATTER[i]?.rotY ?? 0,
-    });
-  });
+          gsap.set(slide, {
+            x: dx,
+            y: dy,
+            rotationZ: SCATTER[i]?.rotZ ?? 0,
+            rotationY: SCATTER[i]?.rotY ?? 0,
+          });
+        });
 
-  // STEP 5 — Animate to natural position
-  gsap.to(slides, {
-    x: 0,
-    y: 0,
-    rotationZ: 0,
-    rotationY: 0,
-    duration: 1.2,
-    ease: "expo.out",
-    stagger: 0.05,
-    onComplete: () => {
-      swiperRef.current.allowTouchMove = true;
-      swiperRef.current.allowSlideNext = true;
-      swiperRef.current.allowSlidePrev = true;
-    }
-  });
-};
+        // natural positions (make them back)
+        gsap.to(slides, {
+          x: 0,
+          y: 0,
+          rotationZ: 0,
+          rotationY: 0,
+          duration: 1.2,
+          ease: "expo.out",
+          stagger: 0.05,
+          onComplete: () => {
+            swiperRef.current.allowTouchMove = true;
+            swiperRef.current.allowSlideNext = true;
+            swiperRef.current.allowSlidePrev = true;
+          }
+        });
+      };
 
       slides.forEach((slide) => slide.addEventListener("click", handleClick));
 

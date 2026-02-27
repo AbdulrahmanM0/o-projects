@@ -5,7 +5,7 @@ import ScrollRevealText from '@/components/animation/ScrollRevealText'
 
 function MissionVision() {
   return (
-    <section>
+    <section id="mission-section">
       <div className='bg-b600 py-clamp-100 relative'>
         <div className='mb-clamp-82'>
           {/* cards slider  */}
