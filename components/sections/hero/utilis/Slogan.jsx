@@ -34,22 +34,22 @@ function Slogan({ title, slogan }) {
                 document.body.style.overflow = "hidden"
             },
         })
-            .from(split2.chars, {
+        .from(split2.chars, {
                 opacity: 0,
                 y: 50,
                 duration: 0.8,
                 stagger: 0.05,
                 ease: "back.out(1.7)",
-            })
-            .from(split3.chars, {
-                opacity: 0,
-                y: 50,
-                duration: 0.8,
-                stagger: 0.02,
-                ease: "back.out(1.7)",
-                onComplete: () => {
-                    document.body.style.overflow = ""
-                },
+        })
+        .from(split3.chars, {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            stagger: 0.02,
+            ease: "back.out(1.7)",
+            onComplete: () => {
+                document.body.style.overflow = ""
+            },
             })
             .from(scrollIconRef.current, {
                 opacity: 0,

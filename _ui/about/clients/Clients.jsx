@@ -2,6 +2,7 @@ import ScrollRevealText from "@/components/animation/ScrollRevealText"
 import PrimaryBtn from "@/components/btn/Primary"
 import Card from "@/components/sectionCards/endcard/Card"
 import Logos from "./utilies/Logos"
+import Link from "next/link"
 
 function Clients() {
     const col1 = <div className="flex flex-col gap-clamp-40">
@@ -12,9 +13,9 @@ function Clients() {
             Working on something <br /> exciting? We’d love
             to help.
         </h3>
-        <div>
+        <Link href={"/contact"}>
             <PrimaryBtn value={"Let’s Talk"} />
-        </div>
+        </Link>
     </div>
     return (
         <section className="relative z-20" id="section-1" >

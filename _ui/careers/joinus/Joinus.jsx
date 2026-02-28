@@ -1,15 +1,16 @@
 import PrimaryBtn from "@/components/btn/Primary"
 import Card from "@/components/sectionCards/endcard/Card"
 import { joinus } from "@/data/aboutus"
+import Link from "next/link"
 
 function Joinus() {
     const col1 = <div className="flex md:flex-col justify-between h-full ">
         <h3 className="leading-[1.2] font-heading font-bold text-balance text-clamp-36 2xl:text-clamp-48 3xl:text-clamp-64">
             How to get <br /> prepared for an <br /> interview
         </h3>
-        <div>
+        <Link href={"/contact"}>
             <PrimaryBtn value={"Join us"} />
-        </div>
+        </Link>
     </div>
     const col2 = <div className="grid grid-cols-2 gap-clamp-20 relative z-10">
         {joinus.map((item, index) => (

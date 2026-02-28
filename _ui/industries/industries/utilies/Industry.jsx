@@ -10,7 +10,7 @@ function Industry({ number, title, body, img, category, index }) {
     const space = spaces[index % spaces.length];
 
     return (
-        <div className='p-[3.75vw] bg-b500 border border-b200 mb-clamp-48 sticky top-[15.28vh]' style={{ zIndex: index + 1 }}>
+        <div className='p-[clamp(10px,3.75vw,72px)] bg-b500 border border-b200 mb-clamp-48 sticky top-[15.28vh]' style={{ zIndex: index + 1 }}>
             {/* borders  */}
             <div>
                 {/* top left  */}
@@ -33,12 +33,12 @@ function Industry({ number, title, body, img, category, index }) {
 
             <div className={`flex justify-between flex-wrap md:flex-nowrap gap-clamp-64 `}>
                 {/* first col  */}
-                <div className={`w-full md:max-w-[40.31vw] ${index %2 === 0 ? " order-first ":" order-last "}`}>
+                <div className={`w-full md:max-w-[clamp(20px,40.31vw,774px)] ${index %2 === 0 ? " order-first ":" order-last "}`}>
                     <div className='flex flex-col gap-clamp-54'>
                         <h6 className='text-balance text-clamp-18 leading-[0.7]'>
                             {number} Industry
                         </h6>
-                        <h3 className="font-heading text-[4.17vw] font-bold leading-none text-balance">
+                        <h3 className="font-heading text-[clamp(10px,4.17vw,80px)] font-bold leading-none text-balance">
                             {title}
                         </h3>
                         <p className='text-b100 text-clamp-16 leading-[1.2]'>

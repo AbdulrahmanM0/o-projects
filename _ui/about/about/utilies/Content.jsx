@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 function Content() {
     const itemsRef = useRef([])
-    itemsRef.current = [] 
 
     const colors = ["text-g400", "text-y400", "text-b600"]
 
@@ -25,14 +24,17 @@ function Content() {
         gsap.from(itemsRef.current, {
             x: -100, 
             opacity: 0,
-            duration: 1,
+            duration: 2,
             ease: "power2.out",
             stagger: 0.2, 
             scrollTrigger: {
                 trigger: itemsRef.current[0],
                 start: "top 80%",
-                end: "top 50%",
-                toggleActions: "play none none none",
+                // end: "top 50%",
+                // toggleActions: "play none none none",
+                scrub: true,
+                // markers: true
+                
             },
         })
     }, [])

@@ -3,6 +3,7 @@ import Card from './utilies/Card'
 import { markets } from '@/data/aboutus'
 import ContactCard from "@/components/sectionCards/endcard/Card"
 import PrimaryBtn from '@/components/btn/Primary';
+import Link from 'next/link';
 
 function Markets() {
     const col1 = <div className="flex flex-col gap-clamp-40">
@@ -13,18 +14,18 @@ function Markets() {
             Working on something <br /> exciting? We’d love
             to help.
         </h3>
-        <div>
+        <Link href={"/contact"}>
             <PrimaryBtn value={"Let’s Talk"} />
-        </div>
+        </Link>
     </div>;
 
     return (
         <section>
             <div>
-                <div className='shadow-inset-top bg-balance px-[3.75vw] py-clamp-100'>
+                <div className='shadow-inset-top bg-balance px-[clamp(10px,3.75vw,72px)] py-clamp-100'>
                     {/* heading  */}
                     <div className='mb-clamp-88 text-center'>
-                        <h2 className='text-[10.42vw] font-heading leading-[0.7] font-bold'>
+                        <h2 className='text-[clamp(30px,10.42vw,200px)] font-heading leading-[0.7] font-bold'>
                             Our Markets
                         </h2>
                     </div>

@@ -45,7 +45,7 @@ function Product({ title, body, img, index }) {
   return (
     <div
       ref={cardRef}
-      className='p-[3.75vw] bg-b500 border border-b200 mb-clamp-48 sticky top-[15.28vh] group overflow-hidden'
+      className='p-[clamp(20px,3.75vw,72px)] bg-b500 border border-b200 mb-clamp-48 sticky top-[15.28vh] group overflow-hidden'
       style={{ zIndex: index + 1 }}
     >
       {/* gradient border */}
@@ -77,7 +77,7 @@ function Product({ title, body, img, index }) {
           <Image
             width={420}
             height={250}
-            className='w-[21.875vw] transition-all duration-300 group-hover:rotate-[5deg] group-hover:scale-[1.2]'
+            className='w-[clamp(20px,21.875vw,420px)] transition-all duration-300 group-hover:rotate-[5deg] group-hover:scale-[1.2]'
             src={img}
             alt={title}
           />
@@ -86,13 +86,13 @@ function Product({ title, body, img, index }) {
         {/* title */}
         <div className='flex items-center'>
           <h3
-            className="font-heading text-[4.17vw] font-bold leading-none text-balance"
+            className="font-heading text-[clamp(10px,4.17vw,80px)] font-bold leading-none text-balance"
             dangerouslySetInnerHTML={{ __html: title }}
           />
         </div>
 
         {/* description */}
-        <div className='flex items-center xl:w-[21.51vw]'>
+        <div className='flex items-center xl:w-[clamp(20px,21.51vw,413px)]'>
           <RevealParagraph className={"!text-b100 text-clamp-16 leading-[1.2]"} body={body} />
         </div>
       </div>

@@ -1,4 +1,5 @@
 import PrimaryBtn from '@/components/btn/Primary';
+import Link from 'next/link';
 
 function Job({ title, experience, category, tags, index }) {
     const colors = [
@@ -63,9 +64,9 @@ function Job({ title, experience, category, tags, index }) {
                 </div>
 
                 {/* action  */}
-                <div>
+                <Link href={`/career/${index}`}>
                     <PrimaryBtn value={"Apply Now"} />
-                </div>
+                </Link>
             </div>
         </div>
     )

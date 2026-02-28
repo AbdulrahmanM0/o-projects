@@ -70,25 +70,8 @@ function Card() {
                             </div>
                         </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 h-16 w-16 overflow-hidden z-20">
-                        <div className="absolute bottom-0 z-10 left-0 h-0 w-0 border-[30px] border-b600 border-t-transparent border-r-transparent opacity-[100]"></div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="47" viewBox="0 0 60 47" fill="none">
-                            <g filter="url(#filter0_d_3211_623)">
-                                <path d="M50.8 8.79981L50.8 41.7998L4.79999 8.7998L50.8 8.79981Z" fill="#F3F3F3" />
-                            </g>
-                            <defs>
-                                <filter id="filter0_d_3211_623" x="-1.23978e-05" y="-0.000195503" width="59.6" height="46.6" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                    <feOffset dx="2" dy="-2" />
-                                    <feGaussianBlur stdDeviation="3.4" />
-                                    <feComposite in2="hardAlpha" operator="out" />
-                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
-                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3211_623" />
-                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3211_623" result="shape" />
-                                </filter>
-                            </defs>
-                        </svg>
+                    <div className="absolute bottom-0 left-0 overflow-hidden z-20 w-[60px] h-[48px] bg-b600 shadow-[2px_0px_20px_0px_#80808078]"> 
+                        <div className="border border-t-[24px] border-l-[30px] border-l-b600 border-r-[30px] border-b-[24px] border-b-b600 border-balance h-full" />
                     </div>
 
                     {/* shadow  */}

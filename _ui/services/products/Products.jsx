@@ -7,7 +7,7 @@ function Products() {
   return (
     <section>
       <div className="max-layout bg-b500">
-        <div className="py-[9.7222vh] px-[3.75vw]">
+        <div className="py-[9.7222vh] px-[clamp(20px,3.75vw,72px)]">
           {/* heading  */}
           <div className="flex gap-clamp-44 justify-between items-center mb-clamp-72">
             <div className="flex flex-col gap-clamp-44">
@@ -17,7 +17,7 @@ function Products() {
 
               <ScrollRevealText
                 text="Comprehensive Technology Solutions"
-                className="font-heading text-[6.667vw] font-bold leading-[1.1] text-balance"
+                className="font-heading text-[clamp(30px,6.667vw,128px)] font-bold leading-[1.1] text-balance"
                 yPercent={200}
                 textClassName={"leading-[1.1]"}
               />

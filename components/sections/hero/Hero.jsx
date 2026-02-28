@@ -8,7 +8,6 @@ function Hero({ title, slogan , nav }) {
     return (
         <section className="snap-start">
             <div className='h-screen'>
-
                 <Shader />
                 <div className='w-full max-w-[1920px] w-full h-full absolute top-0 left-0'>
                     <div className='mt-[15.28vh]'>
@@ -18,9 +17,7 @@ function Hero({ title, slogan , nav }) {
                     <div>
                         <Slogan title={title} slogan={slogan}/>
                     </div>
-
                 </div>
-
             </div>
         </section>
     )

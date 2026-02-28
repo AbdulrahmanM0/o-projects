@@ -31,7 +31,7 @@ function Testmonials() {
 
     return (
         <section ref={sectionRef}>
-            <div className="py-clamp-100 bg-balance relative w-screen max-w-[1920px] overflow-hidden shadow-inset-top">
+            <div className="py-clamp-100 pb-clamp-140 bg-balance relative w-screen max-w-[1920px] overflow-hidden shadow-inset-top">
                 {/* header */}
                 <div className="flex flex-col gap-clamp-40 leading-none text-b550 text-center mb-[55px] z-10 relative">
                     <div className="text-clamp-24 leading-[0.7]">

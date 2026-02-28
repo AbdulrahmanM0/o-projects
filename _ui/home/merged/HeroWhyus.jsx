@@ -24,6 +24,7 @@ export default function HomePage() {
     const startY = heroCenter - imgCenter; 
     const fromTop = -imgCenter; 
 
+    gsap.set(img,{ y: fromTop, scale: 2, rotateZ: -20, zIndex: 10,duration: 1.5 })
     gsap.fromTo(
       img,
       { y: fromTop, scale: 2, rotateZ: -20, zIndex: 10,duration: 1.5 },

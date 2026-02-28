@@ -4,15 +4,20 @@ import Hero from "@/components/sections/hero/Hero";
 import Values from "@/components/sections/values/Values";
 
 export default function Careers() {
+
   const hero = {
     title: "Join Our Squad",
     slogan: <p className='text-clamp-28 font-body font-extralight leading-[1.4] w-fit ms-auto'>
       Diverse ingredients, a pinch of crazy,<br /> and a whole lot of awesomeness.
     </p>
   }
+  const nav = {
+    title: "Career",
+    src: "/career"
+  }
   return (
     <div>
-      <Hero {...hero} />
+      <Hero {...hero} nav={nav}/>
       <Jobs />
       <Values />
       <Joinus />

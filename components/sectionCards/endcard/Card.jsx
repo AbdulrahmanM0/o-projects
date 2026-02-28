@@ -13,7 +13,7 @@ function Card({ col1 , col2 }) {
         <div>
           {col2}
           <div className='absolute bottom-0'>
-            <Image src='/images/o-projects/blue-blur-icon.png' width={1185} height={1185} className='mix-blend-hard-light w-[61.72vw]' alt='o-project icon' />
+            <Image src='/images/o-projects/blue-blur-icon.png' width={1185} height={1185} className='mix-blend-hard-light w-[clamp(100px,61.72vw,1185px)]' alt='o-project icon' />
           </div>
         </div>
 
