@@ -9,6 +9,7 @@ gsap.registerPlugin(SplitText);
 
 function Slogan({ title, slogan }) {
     const hero = title?.split(" ") || [];
+    const container = useRef(null)
     const textRef1 = useRef(null);
     const textRef2 = useRef(null);
     const textRef3 = useRef(null);
@@ -60,10 +61,10 @@ function Slogan({ title, slogan }) {
             split2.revert();
             tl.kill();
         };
-    }, []);
+    }, {scope: container});
 
     return (
-        <div className="text-[10.42vw] font-bold text-balance font-heading flex justify-center pt-[18.7037vh] overflow-hidden max-w-screen relative">
+        <div ref={container} className="text-[clamp(30px,10.42vw,200px)] font-bold text-balance font-heading flex justify-center pt-[18.7037vh] overflow-hidden max-w-[1920px] w-full relative">
             <h1 className="leading-[0.7] will-change-[transform,opacity]" ref={textRef1}>
                 {hero[0]}
             </h1>

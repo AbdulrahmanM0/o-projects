@@ -43,22 +43,45 @@ function AboutImage() {
     useGSAP(() => {
         if (!frameRef.current) return
 
-        gsap.from(frameRef.current, {
-            x: -100,
-            opacity: 0,
-            duration: 1,
-            rotate: 46,
-            ease: "power2.out",
-            stagger: 0.2, 
-            scrollTrigger: {
-                trigger: frameRef.current,
-                start: "top 40%",
-                end: "top bottom",
-                toggleActions: "play none none reverse",
-                // markers: true
+        // gsap.from(frameRef.current, {
+        //     x: -100,
+        //     opacity: 0,
+        //     duration: 1,
+        //     rotate: 46,
+        //     ease: "power2.out",
+
+        //     stagger: 0.2, 
+        //     scrollTrigger: {
+        //         trigger: frameRef.current,
+        //         start: "20% 40%",
+        //         end: "top bottom",
+        //         toggleActions: "play none none reverse",
+        //         // markers: true
+        //     },
+        // })
+
+        gsap.fromTo(
+            frameRef.current,
+            {
+                x: -150,
+                opacity: 0,
+                rotate: 45,
             },
-        })
-    }, [])
+            {
+                x: 0,
+                opacity: 1,
+                rotate: 0,
+                ease: "none", // important for scrub
+                scrollTrigger: {
+                    trigger: frameRef.current,
+                    start: "20% 80%",
+                    end: "20% 30%",
+                    scrub: true, 
+                    markers: true,
+                },
+            }
+        )
+    }, {scope: frameRef})
 
     return (
         <div
@@ -67,10 +90,10 @@ function AboutImage() {
             onMouseLeave={handleMouseLeave}
             onMouseUp={handleMouseLeave}
             onMouseEnter={handleMouseLeave}
-            className="w-[80vw] mx-auto md:mx-0 md:w-[40.94vw] perspective"
+            className="w-[clamp(100px,80vw,1536px)] mx-auto md:mx-0 md:w-[clamp(50px,40.94vw,786px)] perspective"
             style={{ perspective: 1000 }}
         >
-            <Image src={"/images/studies/aboutus.png"} width={659} height={615} className="w-[80vw] mx-auto md:mx-0 md:w-[40.94vw] " alt="about us" />
+            <Image src={"/images/studies/aboutus.png"} width={659} height={615} className="w-[clamp(100px,80vw,1536px)] mx-auto md:mx-0 md:w-[clamp(50px,40.94vw,786px)] " alt="about us" />
         </div>
     )
 }

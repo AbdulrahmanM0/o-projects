@@ -122,7 +122,7 @@ export default function SwiperSection() {
     });
 
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, { scope: sectionRef });
 
   return (
     <section

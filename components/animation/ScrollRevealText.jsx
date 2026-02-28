@@ -2,6 +2,7 @@
 import React, { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +11,7 @@ const ScrollRevealText = ({ text, className = "",textClassName,yPercent }) => {
   const fadedText = useRef();
   const mainText = useRef();
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     gsap.set(mainText.current, { yPercent: -100, opacity: 1 });
     gsap.set(fadedText.current, { yPercent: 0, opacity: 0.2 }); 
 
@@ -37,7 +38,7 @@ const ScrollRevealText = ({ text, className = "",textClassName,yPercent }) => {
     }, 0);
 
     // return () => ScrollTrigger.getAll().forEach(st => st.kill());
-  }, []);
+  }, { scope: container });
 
   return (
     <div ref={container} className={`relative overflow-hidden inline-block will-change-transform ${className}`}>

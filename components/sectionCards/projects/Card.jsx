@@ -42,7 +42,7 @@ function Card({ date, img, title, category, index }) {
             parent.removeEventListener("mouseleave", hoverOut);
         };
 
-    }, [])
+    }, { scope: triggerRef })
 
     return (
         <div className={`${index == 0 ? "sticky top-0 " : ""}`}>

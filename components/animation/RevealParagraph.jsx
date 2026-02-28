@@ -3,11 +3,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function RevealParagraph({ body, className }) {
-    useGSAP(() => {
+    useEffect(() => {
         const split = new SplitText(".reveal-text", { type: "words" }); // to make me remember ".chart"
 
         gsap.from(split.words, {

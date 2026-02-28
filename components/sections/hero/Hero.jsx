@@ -10,7 +10,7 @@ function Hero({ title, slogan , nav }) {
             <div className='h-screen'>
 
                 <Shader />
-                <div className='w-full max-w-screen h-full absolute top-0 left-0'>
+                <div className='w-full max-w-[1920px] w-full h-full absolute top-0 left-0'>
                     <div className='mt-[15.28vh]'>
                         <Navigation {...nav}/>
                     </div>

@@ -9,7 +9,7 @@ function Slider() {
         <div>
             <div>
                 {/* cards  */}
-                <div className="px-[3.75vw] z-10 relative">
+                <div className="px-[clamp(10px,3.75vw,72px)] z-10 relative">
                     <div className="flex flex-wrap justify-between gap-clamp-40 relative">
                         {missionnVision.map((item, index) => (
                             <Card

@@ -35,7 +35,7 @@ export default function OIcon() {
   return (
     <Image
       ref={imageRef}
-      className='ms-[-22.4167vw] me-[-6vw] mt-[-10vw] w-[44.5416vw] relative z-10 will-change-transform'
+      className='ms-[clamp(-430.4px,-22.4167vw,-30px)] me-[clamp(-115.2px,-6vw,-10px)] mt-[clamp(-192px,-10vw,-10px)] w-[clamp(100px,44.5416vw,855.2px)] relative z-10 will-change-transform'
       src="/images/o-projects/blue-icon.png"
       width={740}
       height={740}

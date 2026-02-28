@@ -8,7 +8,7 @@ function Values() {
     return (
         <section id="values-section">
             <div
-                className="shadow-inset-top bg-balance px-[3.75vw] py-clamp-100 relative z-20 sticky top-[200px]"
+                className="shadow-inset-top bg-balance px-[clamp(20px,3.75vw,72px)] py-clamp-100 relative z-20 sticky top-[200px]"
             >
                 {/* heading */}
                 <div className="mb-clamp-88 text-center">
@@ -17,14 +17,14 @@ function Values() {
                     </h2> */}
                     <ScrollRevealText
                         text="Our Values"
-                        className="text-[10.42vw] font-heading leading-[0.7] font-bold"
+                        className="text-[clamp(20px,10.42vw,200px)] font-heading leading-[0.7] font-bold"
                         yPercent={200}
                         textClassName={"leading-[0.7]"}
                     />
                 </div>
 
                 {/* cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-clamp-20 " >
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-clamp-20">
                     {values.map((item, index) => (
                         <Card key={index} {...item} index={index} />
                     ))}

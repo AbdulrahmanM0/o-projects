@@ -26,7 +26,7 @@ function Slider() {
         ease: "power3.out",
       }
     }, 0)
-  })
+  },{ scope: slider })
 
   return (
     <div className="w-full" ref={slider}>

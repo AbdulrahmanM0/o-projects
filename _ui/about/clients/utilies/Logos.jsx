@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -12,7 +13,7 @@ function Logos() {
     const containerRef = useRef(null)
     const itemsRef = useRef([])
 
-    useEffect(() => {
+    useGSAP(() => {
         const ctx = gsap.context(() => {
             // Set initial state — pushed down, invisible, slightly rotated
             gsap.set(itemsRef.current, {
@@ -69,7 +70,7 @@ function Logos() {
         }, containerRef)
 
         return () => ctx.revert()
-    }, [])
+    }, {scope: containerRef})
 
     return (
         <div

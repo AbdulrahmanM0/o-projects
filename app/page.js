@@ -8,7 +8,6 @@ import Testmonials from "@/components/sections/testmonials/Testmonials";
 
 export default function Home() {
   return (
-
     <div>
       {/* <Shads/> */}
       <HeroWhyus />

@@ -12,7 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 function Technologies() {
-  const slider = useRef();
+  const slider = useRef(null);
 
   useGSAP(() => {
     gsap.from(slider.current, {
@@ -26,7 +26,7 @@ function Technologies() {
         ease: "power3.out",
       }
     }, 0)
-  })
+  },{scope: slider})
 
   return (
     <div className="w-full" ref={slider}>

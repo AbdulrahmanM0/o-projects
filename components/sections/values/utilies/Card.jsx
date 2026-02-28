@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,7 +15,7 @@ function Card({ title, body, icon, index }) {
     const iconRef = useRef(null)
     const wrapperRef = useRef(null)
 
-    useEffect(() => {
+    useGSAP(() => {
         const ctx = gsap.context(() => {
             const wrapperHeight = wrapperRef.current?.offsetHeight ?? 300
 
@@ -53,7 +54,7 @@ function Card({ title, body, icon, index }) {
         }, cardRef)
 
         return () => ctx.revert()
-    }, [])
+    }, {scope: cardRef})
 
     return (
         <div ref={cardRef} className="group relative">

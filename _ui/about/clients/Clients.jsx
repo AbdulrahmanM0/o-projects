@@ -18,22 +18,22 @@ function Clients() {
     </div>
     return (
         <section className="relative z-20" id="section-1" >
-            <div className='bg-balance px-[3.75vw] py-clamp-100'>
+            <div className='bg-balance px-[clamp(20px,3.75vw,72px)] py-clamp-100'>
                 {/* head  */}
-                <div className='mx-auto max-w-[75.94vw] text-center text-b250 mb-clamp-56'>
+                <div className='mx-auto max-w-[clamp(100px,75.94vw,1458px)] text-center text-b250 mb-clamp-56'>
                     <h6 className="text-clamp-24 leading-[0.7] mb-clamp-44">
                         Our Clients
                     </h6>
                     <ScrollRevealText
                         text="We provide innovative solutions
                         to expand your business"
-                        className="font-heading text-[4.17vw] text-b500 font-bold leading-none"
+                        className="font-heading text-[clamp(10px,4.17vw,80px)] text-b500 font-bold leading-none"
                         yPercent={200}
                         textClassName={"leading-[1.2]"}
                     />
                 </div>
                 {/* clients  */}
-<Logos />
+                <Logos />
                 {/* contact  */}
                 <div>
                     <Card col1={col1} />

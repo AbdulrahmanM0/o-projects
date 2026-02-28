@@ -38,7 +38,7 @@ function Counter() {
                 }
             )
         })
-    }, [])
+    }, {scope: container})
 
     return (
         <div ref={container} className='px-[4.01vw] flex flex-wrap justify-between'>

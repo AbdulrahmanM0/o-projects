@@ -7,6 +7,7 @@ import Hero from "@/components/sections/hero/Hero";
 import DynamicScrollSections from "@/_ui/test/TestSectionns";
 import CurtainReveal from "@/components/sections/scrolls/ScrollSection";
 import ScrollSection from "@/components/sections/scrolls/ScrollSection";
+import Provder from "@/components/layout/Provder";
 
 export default function About() {
   const hero = {
@@ -16,12 +17,12 @@ export default function About() {
     </p>
   }
   return (
-    <div>
-      <Hero {...hero} />
-      <AboutUs />
-      <MissionVision />
-      <Values />
-      <Clients />
-    </div>
+      <div className=" bg-gray-900">
+        <Hero {...hero} />
+        <AboutUs />
+        <MissionVision />
+        <Values />
+        <Clients />
+      </div>
   );
 }

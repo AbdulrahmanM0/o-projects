@@ -15,7 +15,6 @@ export default function Industry() {
       <Hero {...hero}/>
       <Industries />
       <Markets />
-
     </div>
   );
 }

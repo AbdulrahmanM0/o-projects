@@ -43,14 +43,14 @@ function Content() {
                 <div
                     key={item.heighlights + index}
                     ref={addToRefs}
-                    className="ms-[3.65vw] relative group"
+                    className="ms-[clamp(10px,3.65vw,70px)] relative group"
                 >
                     <div
-                        className={`w-[5.57vw] ${index ? "bg-wd800" : "bg-b600"} 
+                        className={`w-[clamp(20px,5.57vw,107px)] ${index ? "bg-wd800" : "bg-b600"} 
                                     transition-transform duration-300 ease-in-out 
                                     group-hover:bg-b600 group-hover:scale-x-[1.2] 
                                     px-[16px] py-[3px] md:py-[6px] text-balance text-clamp-18 
-                                    absolute text-end left-[-7.45vw] top-[-0.56vh]`}
+                                    absolute text-end left-[clamp(-143px,-7.45vw,-20px)] top-[-0.56vh]`}
                     >
                         0{index + 1}
                     </div>
