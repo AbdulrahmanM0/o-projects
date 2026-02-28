@@ -34,7 +34,7 @@ function Job({ title, experience, category, tags, index }) {
 
             <div className='flex justify-between flex-col gap-clamp-30'>
                 {/* details  */}
-                <div className='flex gap-clamp-30'>
+                <div className='flex flex-wrap gap-clamp-30'>
                     <div className='flex items-center justify-between px-clamp-16 py-clamp-10 gap-clamp-14 text-g150 text-clamp-18 leading-[0.7] border border-b300'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M12 1.5C9.81276 1.50258 7.71584 2.3726 6.16923 3.91922C4.62261 5.46584 3.75259 7.56276 3.75001 9.75C3.74739 11.5374 4.33124 13.2763 5.41201 14.7C5.41201 14.7 5.63701 14.9963 5.67376 15.039L12 22.5L18.3293 15.0353C18.3623 14.9955 18.588 14.7 18.588 14.7L18.5888 14.6978C19.669 13.2747 20.2526 11.5366 20.25 9.75C20.2474 7.56276 19.3774 5.46584 17.8308 3.91922C16.2842 2.3726 14.1873 1.50258 12 1.5ZM14.7 13.5L12 11.7817L9.30001 13.5L9.75001 10.4445L7.50001 8.37975L10.65 7.9995L12 5.25L13.434 8.00025L16.5 8.37975L14.25 10.4445L14.7 13.5Z" fill="#5E666A" />

@@ -7,7 +7,7 @@ function PortfolioSection({ heading, children, gap , category }) {
     return (
         <div className='px-[3.75vw] py-clamp-100 bg-b500'>
             {/* heading  */}
-            <div className={`flex justify-between items-center ${heading.className.heading}`}>
+            <div className={`flex justify-between items-center gap-clamp-64 flex-wrap md:flex-nowrap ${heading.className.heading}`}>
                 <div className='relative'>
                     <h6 className='text-clamp-18 3xl:text-clamp-24 leading-none text-balance mb-clamp-30'>{subtitle}</h6>
                     <ScrollRevealText

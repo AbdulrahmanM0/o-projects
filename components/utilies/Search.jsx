@@ -7,7 +7,7 @@ function Search() {
         placeholder="What are you looking for?"
         className="w-full text-clamp-18 text-b100 placeholder-b100 leading-[0.7] 
                    bg-transparent border border-b300 
-                   py-clamp-18 pe-clamp-32 ps-clamp-66 outline-none rounded-[2px] w-[30.0521vw]"
+                   py-clamp-18 pe-clamp-32 ps-clamp-66 outline-none rounded-[2px] w-[clamp(300px,30.0521vw,577px)]"
       />
 
       <svg
