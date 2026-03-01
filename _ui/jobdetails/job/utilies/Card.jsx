@@ -1,10 +1,11 @@
 import ThirdBtn from "@/components/btn/Third"
 import Navigation from "./Navigation"
+import Link from "next/link"
 
 function Card({ tags, category, title, experience, showBtn = true }) {
     return (
         <div>
-            <div className={`${ showBtn && "p-[5.2083vw] border-b border-b-b100 " }`}>
+            <div className={`${ showBtn && "p-[clamp(10px,5.2083vw,100px)] border-b border-b-b100 " }`}>
                 {/* navigatio  */}
                 <div className="text-clamp-18 text-b500 mb-clamp-28 leading-[0.7]">
                     <Navigation />
@@ -45,9 +46,9 @@ function Card({ tags, category, title, experience, showBtn = true }) {
 
                     {/* action  */}
                     {showBtn &&
-                        <div className="h-fit">
+                        <Link href="/apply" className="h-fit">
                             <ThirdBtn value={"Apply Now"} />
-                        </div>
+                        </Link>
                     }
 
                 </div>

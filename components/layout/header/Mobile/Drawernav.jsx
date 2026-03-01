@@ -27,7 +27,7 @@ function DrawerNav() {
                             {
                                 navigationData.filter(item => ["Home", "About", "Services", "Industries", "Portfolio", "Career"].includes(item.title)).map((item, index) => (
                                     <li key={item.title}>
-                                        <Link href={"#"} className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading flex justify-between items-center  leading-[0.69]">
+                                        <Link href={item?.link} className="text-clamp-24 3xl:text-clamp-36 font-bold font-heading flex justify-between items-center  leading-[0.69]">
                                             {/* link name */}
                                             {item.title}
                                             {/* icon */}

@@ -12,9 +12,9 @@ function Projects() {
             title: "Latest Projects",
             className: {
                 text: "leading-[1.2] text-balance",
-                titleClass: "w-[29.9479vw] text-[6.667vw] font-heading text-balance font-bold leading-none"
+                titleClass: "w-[clamp(10px,29.9479vw,575px)] text-[clamp(20px,6.667vw,128px)] font-heading text-balance font-bold leading-none"
             },
-            component: <p className='text-clamp-18 text-balance max-w-[23.23vw] leading-[1.5]'>
+            component: <p className='text-clamp-18 text-balance max-w-[clamp(10px,23.23vw,446px)] leading-[1.5]'>
                 Explore our portfolio of innovative projects and discover how we've helped businesses like yours achieve their goals.
             </p>
         }
@@ -22,7 +22,7 @@ function Projects() {
     return (
         <section>
             <div className='overflow-hidden'>
-                <PortfolioSection heading={data.heading} gap='gap-y-[3.75vw] gap-x-[8.3333vw]'>
+                <PortfolioSection heading={data.heading} gap='gap-y-[clamp(10px,3.75vw,72px)] gap-x-[clamp(10px,8.3333vw,160px)]'>
 
                     {/* projects cols  */}
                     {
@@ -37,7 +37,7 @@ function Projects() {
                         ))
                     }
                     {/* navigation  */}
-                    <div className='flex items-center justify-center gap-[31px] col-span-full'>
+                    <div className='flex items-center flex-wrap justify-center gap-[31px] col-span-full'>
                         {/* projects Or portfolio */}
                         <Summary data={projects} />
 

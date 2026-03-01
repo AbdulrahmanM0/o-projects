@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 function Counter() {
     const container = useRef(null)
 
-    useGSAP(() => {
+    useEffect(() => {
         const numbers = container.current.querySelectorAll(".counter-number")
 
         numbers.forEach((el) => {
@@ -38,7 +38,7 @@ function Counter() {
                 }
             )
         })
-    }, {scope: container})
+    }, [])
 
     return (
         <div ref={container} className='px-[4.01vw] flex flex-wrap justify-between'>

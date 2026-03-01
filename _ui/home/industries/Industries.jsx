@@ -1,6 +1,7 @@
 import SecondaryBtn from "@/components/btn/Secondary"
 import Card from "./utilies/Card"
 import ScrollRevealText from "@/components/animation/ScrollRevealText";
+import Link from "next/link";
 
 function Industries() {
 
@@ -24,9 +25,9 @@ function Industries() {
                         <p className="text-clamp-18 xl:max-w-[clamp(40px,22.81vw,434px)]">
                             We will provide guidance on technology choices, implementation strategies, and organizational structures
                         </p>
-                        <div>
+                        <Link href={"/industries"}>
                             <SecondaryBtn />
-                        </div>
+                        </Link>
                     </div>
 
                     {/* card  */}

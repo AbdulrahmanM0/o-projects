@@ -24,7 +24,7 @@ function Card({ date, img, title, category, index }) {
                 start: "top center",
                 end: "bottom top",
                 scrub: false,
-                markers: false
+                // markers: false
             }
         })
 

@@ -9,7 +9,7 @@ function Products() {
       <div className="max-layout bg-b500">
         <div className="py-[9.7222vh] px-[clamp(20px,3.75vw,72px)]">
           {/* heading  */}
-          <div className="flex gap-clamp-44 justify-between items-center mb-clamp-72">
+          <div className="flex flex-wrap gap-clamp-44 justify-between items-center mb-clamp-72">
             <div className="flex flex-col gap-clamp-44">
               {/* <h3 className="font-heading text-[6.667vw] font-bold leading-[1.1] text-balance">
                 Comprehensive <br /> Technology Solutions

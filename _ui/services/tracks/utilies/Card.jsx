@@ -4,7 +4,7 @@ import React from 'react'
 function Card({ img, title, body }) {
 
     return (
-        <div className='relative mt-[4.375vw]'>
+        <div className='relative mt-[clamp(60px,4.375vw,84px)]'>
             <div
                 className="w-fit mx-auto absolute left-1/2 -translate-x-1/2 z-10 top-[-84px]"
             >

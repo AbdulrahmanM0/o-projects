@@ -1,45 +1,65 @@
 "use client"
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useRef, useLayoutEffect, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollRevealText = ({ text, className = "",textClassName,yPercent }) => {
+const ScrollRevealText = ({ text, className = "", textClassName, yPercent }) => {
+  const pathname = usePathname();
   const container = useRef();
   const fadedText = useRef();
   const mainText = useRef();
 
-  useGSAP(() => {
-    gsap.set(mainText.current, { yPercent: -100, opacity: 1 });
-    gsap.set(fadedText.current, { yPercent: 0, opacity: 0.2 }); 
+  useEffect(
+    (context) => {
+      const el = container.current;
+      const main = mainText.current;
+      const faded = fadedText.current;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-        markers:false
-      },
-    });
+      if (!el || !main || !faded) return;
 
-    tl.to(fadedText.current, {
-      yPercent: yPercent || 100,
-      duration: 1.2,
-      ease: "power3.out",
-    }, 0);
+      gsap.set(main, { yPercent: -100, opacity: 1 });
+      gsap.set(faded, { yPercent: 0, opacity: 0.2 });
 
-    tl.to(mainText.current, {
-      yPercent: 0,
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.out",
-    }, 0);
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
 
-    // return () => ScrollTrigger.getAll().forEach(st => st.kill());
-  }, { scope: container });
+      tl.to(
+        faded,
+        {
+          yPercent: yPercent ?? 100,
+          duration: 1.2,
+          ease: "power3.out",
+        },
+        0
+      );
 
+      tl.to(
+        main,
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+        },
+        0
+      );
+
+      return () => {
+        tl.scrollTrigger?.kill();
+        tl.kill();
+      };
+    },
+    []
+  );
   return (
     <div ref={container} className={`relative overflow-hidden inline-block will-change-transform ${className}`}>
       {/* Faded text */}

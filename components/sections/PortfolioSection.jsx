@@ -5,7 +5,7 @@ function PortfolioSection({ heading, children, gap , category }) {
     const { subtitle, title, className: { text, titleClass }, component } = heading;
 
     return (
-        <div className='px-[3.75vw] py-clamp-100 bg-b500'>
+        <div className='px-[clamp(10px,3.75vw,72px)] py-clamp-100 bg-b500'>
             {/* heading  */}
             <div className={`flex justify-between items-center gap-clamp-64 flex-wrap md:flex-nowrap ${heading.className.heading}`}>
                 <div className='relative'>
@@ -26,7 +26,7 @@ function PortfolioSection({ heading, children, gap , category }) {
             {category && category}
 
             {/* cards  */}
-            <div className={`px-[3.62vw] grid grid-cols-1 xl:grid-cols-2 ${gap ? gap : 'gap-[8.80vw]'}`}>
+            <div className={`px-[clamp(10px,3.62vw,69.5px)] grid grid-cols-1 xl:grid-cols-2 ${gap ? gap : 'gap-[8.80vw]'}`}>
                 {children}
             </div>
         </div>
