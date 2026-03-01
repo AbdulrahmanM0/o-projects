@@ -44,8 +44,8 @@ function SplashScreen() {
     }, { scope: container })
 
     return (
-        <section ref={container} className="w-screen h-screen absolute top-0 bottom-0 z-[9999]">
-            <div className="w-full h-full grid grid-cols-4 absolute top-0 left-0">
+        <section ref={container} className="w-screen h-screen fixed top-0 bottom-0 z-[9999]">
+            <div className="w-full h-full grid grid-cols-4 absolute top-0 left-0 relative z-20">
                 {cols.map((items, index) => (
                     <div
                         key={index}
@@ -56,13 +56,32 @@ function SplashScreen() {
                     </div>
                 ))}
             </div>
-            <div className="w-full h-full bg-gray-400 flex flex-col justify-between">
-                <div className="h-[30.185vh] bg-b500 h-full w-full" />
-
-                <div className="h-[30.185vh] bg-b500 h-full w-full" />
+            <div className="w-full h-full top-0 left-0 bg-gray-400 flex flex-col justify-between absolute">
+                <div className="h-[30.185vh] bg-b500 h-full w-full relative z-10" />
+                <div className="absolute top-0 left-0 z-0">
+                    <SplashVideo />
+                </div>
+                <div className="h-[30.185vh] bg-b500 h-full w-full relative z-10" />
             </div>
         </section>
     )
 }
 
 export default SplashScreen
+
+
+function SplashVideo() {
+    return (
+        <div className="fixed inset-0 z-50 bg-black">
+            <video
+                className="w-full h-full object-cover"
+                src="/videos/shads.mp4"
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
+            />
+        </div>
+    )
+}
+

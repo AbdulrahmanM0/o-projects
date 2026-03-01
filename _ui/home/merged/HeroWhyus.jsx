@@ -12,51 +12,67 @@ export default function HomePage() {
   const container = useRef(null);
   const imgRef = useRef(null);
 
-  useGSAP(() => {
-    if (!imgRef.current || !container.current) return;
+useGSAP(() => {
+  if (!imgRef.current || !container.current) return;
 
-    const img = imgRef.current;
-    const containerRect = container.current.getBoundingClientRect();
-    const imgRect = img.getBoundingClientRect();
+  const img = imgRef.current;
+  const containerRect = container.current.getBoundingClientRect();
+  const imgRect = img.getBoundingClientRect();
 
-    const heroCenter = containerRect.top + containerRect.height / 2;
-    const imgCenter = imgRect.top + imgRect.height / 2;
-    const startY = heroCenter - imgCenter; 
-    const fromTop = -imgCenter; 
+  const heroCenter = containerRect.top + containerRect.height / 2;
+  const imgCenter = imgRect.top + imgRect.height / 2;
+  const startY = heroCenter - imgCenter;
+  const fromTop = -imgCenter;
 
-    gsap.set(img,{ y: fromTop, scale: 2, rotateZ: -20, zIndex: 10,duration: 1.5 })
+  const tl = gsap.timeline({ delay: 4 }); 
+
+  tl.set(img, {
+    y: fromTop,
+    scale: 2,
+    rotateZ: -20,
+    zIndex: 10,
+    opacity: 0.5
+  });
+
+  tl.fromTo(
+    img,
+    {
+      y: fromTop,
+      scale: 2,
+      rotateZ: -20,
+      opacity: 0.5,
+    },
+    {
+      y: startY,
+      scale: 2,
+      rotateZ: -20,
+      opacity: 0.5,
+      duration: 1.2,
+      ease: "power3.out",
+    }
+  );
+
+  tl.add(() => {
     gsap.fromTo(
       img,
-      { y: fromTop, scale: 2, rotateZ: -20, zIndex: 10,duration: 1.5 },
+      { y: startY, scale: 2, rotateZ: -20 },
       {
-        y: startY,
-        scale: 2,
-        rotateZ: -20,
-        duration: 1.2,
-        ease: "power3.out",
-
-        onComplete: () => {
-          gsap.fromTo(
-            img,
-            { y: startY, scale: 2, rotateZ: -20 },
-            {
-              y: 0,
-              scale: 1,
-              rotateZ: 0,
-              ease: "none",
-              scrollTrigger: {
-                trigger: container.current,
-                start: "top top",
-                end: () => `+=${Math.abs(startY)}`,
-                scrub: 1.2,
-                // markers: true,
-              },
-            }
-          );
+        y: 0,
+        scale: 1,
+        rotateZ: 0,
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: () => `+=${Math.abs(startY)}`,
+          scrub: 1.2,
         },
       }
     );
-  }, { scope: container });
+  });
+
+}, { scope: container });
 
   return (
     <div>

@@ -14,7 +14,7 @@ function MissionVision() {
 
         {/* technologies  */}
         <div>
-          {/* <div className='mx-auto max-w-[clamp(200px,75.94vw,1458px)] text-center text-balance mb-clamp-56'>
+          <div className='mx-auto max-w-[clamp(200px,75.94vw,1458px)] text-center text-balance mb-clamp-56'>
             <h6 className="text-clamp-24 leading-[0.7] mb-clamp-44">
               Technology
             </h6>
@@ -25,7 +25,7 @@ function MissionVision() {
               yPercent={200}
               textClassName={"leading-[1.2]"}
             />
-          </div> */}
+          </div>
 
           {/* technologies swiper  */}
           <div className="relative px-[clamp(20px,7.03vw,134px)]">
