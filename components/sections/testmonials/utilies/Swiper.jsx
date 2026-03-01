@@ -22,6 +22,7 @@ export default function SwiperSection() {
   const swiperWrapRef = useRef(null);
   const swiperRef = useRef(null);
   const assembledRef = useRef(false);
+  const navRef = useRef(null);
 
   useGSAP(() => {
     const raf = requestAnimationFrame(() => {
@@ -39,6 +40,7 @@ export default function SwiperSection() {
       }
 
       gsap.set(wrap, { perspective: 1200, overflow: "visible" });
+      gsap.set(navRef.current, { autoAlpha: 0, y: 40 });
       const inner = wrap.querySelector(".swiper-wrapper");
       if (inner) gsap.set(inner, { overflow: "visible" });
 
@@ -110,6 +112,13 @@ export default function SwiperSection() {
             swiperRef.current.allowTouchMove = true;
             swiperRef.current.allowSlideNext = true;
             swiperRef.current.allowSlidePrev = true;
+
+            gsap.to(navRef.current, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "power3.out"
+            });
           }
         });
       };
@@ -163,7 +172,8 @@ export default function SwiperSection() {
             </SwiperSlide>
           ))}
 
-          <div className="flex items-center justify-center gap-[13px] absolute left-1/2 -translate-x-[50%] bottom-[-9.26vh] select-none w-fit mx-auto z-20">
+          {/* navigation  */}
+          <div ref={navRef} className="flex items-center justify-center gap-[13px] absolute left-1/2 -translate-x-[50%] bottom-[-9.26vh] select-none w-fit mx-auto z-20">
             <button className="swiper-prev text-3xl">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-[24px] h-[24px]" width="12" height="20" viewBox="0 0 12 20" fill="none">
                 <path d="M11.0457 0.439179C11.3269 0.720471 11.4849 1.10193 11.4849 1.49968C11.4849 1.89743 11.3269 2.27889 11.0457 2.56018L3.62068 9.98518L11.0457 17.4102C11.3189 17.6931 11.4701 18.072 11.4667 18.4653C11.4633 18.8586 11.3055 19.2348 11.0274 19.5129C10.7493 19.791 10.3731 19.9488 9.97978 19.9522C9.58649 19.9556 9.20758 19.8044 8.92468 19.5312L0.43918 11.0457C0.157973 10.7644 4.53852e-07 10.3829 4.36466e-07 9.98518C4.1908e-07 9.58743 0.157973 9.20597 0.43918 8.92468L8.92468 0.439179C9.20597 0.157973 9.58743 -4.1908e-07 9.98518 -4.36466e-07C10.3829 -4.53852e-07 10.7644 0.157973 11.0457 0.439179Z" fill="#1D58FF" />
