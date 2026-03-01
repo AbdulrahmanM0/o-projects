@@ -17,7 +17,7 @@ function Oprojects() {
       scrollTrigger: {
         trigger: logoRef.current,
         start: "top top",
-        end: "+=100%",
+        end: "+=140%",
         pin: true,
         scrub: true,
         anticipatePin: 1,

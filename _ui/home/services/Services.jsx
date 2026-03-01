@@ -63,9 +63,9 @@ function Services() {
                 trigger: section,
                 start: "top top",
                 end: () =>
-                    `+=${cardsContainer.scrollWidth - section.offsetWidth} 500`,
+                    `+=${(cardsContainer.scrollWidth - section.offsetWidth) * 1.8}`,
                 pin: true,
-                scrub: 1,
+                scrub: 2.5,
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
                 // markers: true
@@ -95,6 +95,7 @@ function Services() {
         tl.to(
             cardsContainer,
             {
+
                 x: () =>
                     -(cardsContainer.scrollWidth - section.offsetWidth),
                 ease: "none"

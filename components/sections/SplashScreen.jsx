@@ -22,26 +22,33 @@ function SplashScreen() {
     ]
 
     useGSAP(() => {
-        const tl = gsap.timeline({
-            onStart: () => {
-                document.body.style.overflow = "hidden"
-            },
+        document.body.style.overflow = "hidden"
+        gsap.to(cards.current, {
+            opacity: 1,
+            rotateY: 0, 
+            duration: 0.5
         })
 
-        tl.to(cards.current, {
+        gsap.to(cards.current, {
             opacity: 0,
             rotateY: 180,
-            duration: 4,
+            duration: 2,
             ease: "power4.out",
+            delay: 0.5
         })
-            .set(container.current, {
-                display: "none",
-                onComplete: () => {
-                    document.body.style.overflow = ""
-                }
-            })
 
+        gsap.to(container.current.querySelectorAll(".top-bottom-bar"), {
+            height: 0,
+            duration: 1.5,
+            ease: "power2.inOut",
+            delay: 2.5,
+            onComplete: () => {
+                document.body.style.overflow = ""
+                container.current.style.display = "none"
+            }
+        })
     }, { scope: container })
+
 
     return (
         <section ref={container} className="w-screen h-screen fixed top-0 bottom-0 z-[9999]">
@@ -57,11 +64,11 @@ function SplashScreen() {
                 ))}
             </div>
             <div className="w-full h-full top-0 left-0 bg-gray-400 flex flex-col justify-between absolute">
-                <div className="h-[30.185vh] bg-b500 w-full relative z-20" />
+                <div className="h-[30.185vh] bg-b500 w-full relative z-20 top-bottom-bar" />
                 <div className="absolute top-0 left-0 z-10 h-full w-full">
                     <SplashVideo />
                 </div>
-                <div className="h-[30.185vh] bg-b500 w-full relative z-20" />
+                <div className="h-[30.185vh] bg-b500 w-full relative z-20 top-bottom-bar" />
             </div>
         </section>
     )

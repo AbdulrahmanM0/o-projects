@@ -31,7 +31,7 @@ useGSAP(() => {
     scale: 2,
     rotateZ: -20,
     zIndex: 10,
-    opacity: 0.5
+    opacity: 0.3
   });
 
   tl.fromTo(
@@ -40,13 +40,13 @@ useGSAP(() => {
       y: fromTop,
       scale: 2,
       rotateZ: -20,
-      opacity: 0.5,
+      opacity: 0.3,
     },
     {
       y: startY,
       scale: 2,
       rotateZ: -20,
-      opacity: 0.5,
+      opacity: 0.3,
       duration: 1.2,
       ease: "power3.out",
     }
@@ -87,7 +87,7 @@ useGSAP(() => {
           <div className='flex justify-center absolute top-[10px] xl:top-[30px] left-1/2 -translate-x-[50%] z-20 overflow-visible'>
             <img
               ref={imgRef}
-              src="/images/o-projects/icon.png"
+              src="/images/o-projects/icon.webp"
               alt="icon"
               className="w-[clamp(100px,32.14vw,617px)]"
               style={{ willChange: "transform" }}
