@@ -180,7 +180,7 @@ export default function SwiperSection() {
               </svg>
             </button>
 
-            <div className="custom-pagination flex items-center gap-[5px]" />
+            <div className="custom-pagination items-center gap-[5px]   hidden" />
 
             <button className="swiper-next text-3xl">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-[24px] h-[24px]" width="12" height="20" viewBox="0 0 12 20" fill="none">

@@ -70,7 +70,7 @@ function Card({ date, img, title, category, index }) {
                     </h6>
 
                     {/* categories */}
-                    <div className='flex gap-clamp-10'>
+                    <div className='flex flex-wrap gap-clamp-10'>
                         {
                             category.map(item => (
                                 <div className='flex items-center justify-between px-clamp-16 py-clamp-10 text-b100 text-clamp-14 leading-[0.7] border border-b300' key={item}>

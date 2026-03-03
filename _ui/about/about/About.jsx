@@ -8,7 +8,7 @@ function About() {
   return (
     <section className="snap-start">
       {/* about us  */}
-      <div className="max-layout bg-b500 ">
+      <div className="max-layout bg-b500">
         <div className="py-[9.7222vh] px-[clamp(10px,3.75vw,72px)]">
 
           {/* o-projects logo  */}

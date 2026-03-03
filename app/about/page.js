@@ -8,6 +8,7 @@ import DynamicScrollSections from "@/_ui/test/TestSectionns";
 import CurtainReveal from "@/components/sections/scrolls/ScrollSection";
 import ScrollSection from "@/components/sections/scrolls/ScrollSection";
 import Provder from "@/components/layout/Provder";
+import Gradiant from "@/components/sections/split/Gradiant";
 
 export default function About() {
   const hero = {
@@ -20,6 +21,7 @@ export default function About() {
       <div className=" bg-gray-900">
         <Hero {...hero} />
         <AboutUs />
+        {/* <Gradiant /> */}
         <MissionVision />
         <Values />
         <Clients />

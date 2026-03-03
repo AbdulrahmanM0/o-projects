@@ -27,3 +27,13 @@ body {
     background: #2563eb; /* blue */
     width: 80px;
 }
+
+.custom-pagination {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .custom-pagination {
+    display: flex !important;
+  }
+}

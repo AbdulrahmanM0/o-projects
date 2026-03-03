@@ -77,7 +77,7 @@ function AboutImage() {
                     start: "20% 80%",
                     end: "20% 30%",
                     scrub: true, 
-                    markers: true,
+                    // markers: true,
                 },
             }
         )

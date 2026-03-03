@@ -15,7 +15,7 @@ function Logos() {
 
     useGSAP(() => {
         const ctx = gsap.context(() => {
-            // Set initial state — pushed down, invisible, slightly rotated
+            // initial states
             gsap.set(itemsRef.current, {
                 opacity: 0,
                 y: 60,

@@ -30,16 +30,16 @@ function Contact() {
             </div>
 
             {/* form  */}
-            <div className='flex justify-between flex-wrap'>
-              <div className='flex-1 max-w-[53.7vw]'>
+            <div className='flex justify-between flex-wrap md:flex-row flex-col md:gap-[0] gap-clamp-48'>
+              <div className='flex-1 md:max-w-[53.7vw] w-full'>
                 <Form />
               </div>
 
               {/* links ad data  */}
               <div>
                 {/* icon logo  */}
-                <div className='relative'>
-                  <Image src={"/images/o-projects/icon.png"} width={574} height={455} className='absolute bottom-0 rotate-[36deg] bg-gradient-to-b from-[#1D58FF]/0 to-[#1D58FF]' alt='o-projects icon' />
+                <div className='relative bg-gradient-to-b from-transparent to-[#1D58FF] z-[0] hidden md:block'>
+                  <Image src={"/images/o-projects/icon.png"} width={574} height={455} className='absolute bottom-0 rotate-[36deg] bg-gradient-to-b from-transparent to-[#1D58FF]' alt='o-projects icon' />
                 </div>
                 <div className='flex flex-col gap-clamp-64'>
 
@@ -89,12 +89,12 @@ function Contact() {
           </div>
 
 
-          <div className='flex justify-between mt-[7.29vw]'>
+          <div className='flex flex-wrap justify-between gap-clamp-48 mt-[7.29vw]'>
             <p className='text-balance text-clamp-24 leading-[1.3] font-bold'>
               Feel free to reach me across <br/> different social platforms
             </p>
             {/* links  */}
-            <div className='flex gap-clamp-56'>
+            <div className='flex flex-wrap gap-clamp-56'>
               {social.map((item, index) => (
                 <div key={index} className='flex gap-clamp-32 items-center'>
                   {item.icon}

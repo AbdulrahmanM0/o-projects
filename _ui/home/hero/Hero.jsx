@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-
+// import HeroWaves from "./utilies/HeroWaves";
 
 gsap.registerPlugin(ScrollTrigger);
 function Hero() {
@@ -53,14 +53,18 @@ function Hero() {
           </div>
 
           <video
-            className="w-full h-full absolute top-0 left-0 object-cover"
-            src="/videos/shads.mp4"
-            autoPlay
-            muted
-            playsInline
-            loop
-            preload="auto"
-          />
+              className="w-full h-full absolute top-0 left-0 object-cover"
+              src="/videos/shads.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+            />
+
+          {/* <HeroWaves /> */}
+
+
         </div>
       </div>
     </section>
@@ -68,3 +72,4 @@ function Hero() {
 }
 
 export default Hero;
+
