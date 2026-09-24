@@ -123,7 +123,7 @@ function Services() {
     }, { scope: sectionRef })
 
     return (
-        <section className="services bg-b600">
+        <section className="services bg-b600 overflow-hidden max-w-full">
             <div
                 className="relative overflow-hidden xl:h-auto h-screen max-w-full"
                 ref={sectionRef}
