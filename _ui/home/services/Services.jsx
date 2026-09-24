@@ -125,7 +125,7 @@ function Services() {
     return (
         <section className="services bg-b600">
             <div
-                className="relative overflow-hidden xl:h-auto h-screen"
+                className="relative overflow-hidden xl:h-auto h-screen max-w-full"
                 ref={sectionRef}
             >
                 {/* title */}
